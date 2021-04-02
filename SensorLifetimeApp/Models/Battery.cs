@@ -5,17 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace SensorLifetimeApp.Models
 {
+    [Serializable()]
+    [XmlRoot("Battery")]
     public class Battery
     {
+        [XmlAttribute(attributeName: "power")]
         public Power Power { get; set; }
         //private int _capacity;
-        public int Capacity
-        {
-            get; internal set;
-        }
+        [XmlAttribute(attributeName: "capacity")]
+        public int Capacity { get; set; }
         
         private static readonly ParamSetup ParamSetup = ParamSetup.GetInstance();
 

@@ -7,7 +7,7 @@ namespace SensorLifetimeApp.Models
     {
         internal List<Sensor> GetSensorsForPOI(POI poi)
         {
-            throw new NotImplementedException();
+            return new List<Sensor>();
         }
     }
 }
