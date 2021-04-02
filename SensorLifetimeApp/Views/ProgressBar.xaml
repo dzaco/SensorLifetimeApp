@@ -1,0 +1,14 @@
+﻿<Window x:Class="WordAddIn.ProgressBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WordAddIn"
+             mc:Ignorable="d" 
+             Title=""
+             Background="#FF0066CC"
+             d:DesignHeight="83.529" d:DesignWidth="424.706">
+    <Grid Background="#FF0066CC" Margin="14">
+        <ProgressBar Minimum="0" Maximum="100" Name="ImportStatus" IsIndeterminate="True" />
+    </Grid>
+</Window>
