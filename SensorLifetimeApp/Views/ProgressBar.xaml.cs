@@ -21,7 +21,12 @@ namespace SensorLifetimeApp.Views
     {
         public ProgressBar()
         {
-            InitializeComponent();
+            //InitializeComponent();
+        }
+        public ProgressBar(string title)
+        {
+            //InitializeComponent();
+            this.Title = title;
         }
     }
 }
