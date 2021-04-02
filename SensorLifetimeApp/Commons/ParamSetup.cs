@@ -6,43 +6,39 @@ using System.Threading.Tasks;
 
 namespace SensorLifetimeApp.Commons
 {
-    class ParamSetup // Singleton
+    public class ParamSetup // Singleton
     {
+        #region Parameters
+        public float MinimalCoverage { get { return this._minimalCoverage; } }
+        private float _minimalCoverage;
+        public int PoiCount { get { return this._poiCount; } }
+        private int _poiCount;
+        public int SensorCount { get { return this._sensorCount; } }
+        private int _sensorCount;
+        public int BatteryCapacity { get { return this._batteryCapacity; } }
+        private int _batteryCapacity;
+        ///<summary>Parameter how many battery will go down during one iteration </summary>
+        public int BatteryConsumption { get { return this._batteryConsumption; } }
+        private int _batteryConsumption;
+        public int AreaWidth { get { return this._areaWidth; } }
+        private int _areaWidth; 
+        #endregion
 
-        public float MinimalCoverage { get; }
-        public int PoiCount { get; }
-        public int SensorCount { get; }
-        public int BatteryCapacity { get; }
-        public int AreaWidth { get; }
 
         private ParamSetup() // Set default values
         {
-            this.MinimalCoverage = 0.9f;
-            this.PoiCount = 36;
-            this.SensorCount = 5;
-            this.BatteryCapacity = 20;
-            this.AreaWidth = 100;
+            this._minimalCoverage = 0.9f;
+            this._poiCount = 36;
+            this._sensorCount = 5;
+            this._batteryCapacity = 20;
+            this._batteryConsumption = 1;
+            this._areaWidth = 100;
         }
-        private ParamSetup(float minCov, int poi, int sensors, int battery, int area)
-        {
-            _instance = null; // reset parameters;
-            this.MinimalCoverage = minCov;
-            this.PoiCount = poi;
-            this.SensorCount = sensors;
-            this.BatteryCapacity = battery;
-            this.AreaWidth = area;
-        }
-
-        public ParamSetup(ParamSetupArray parameters) 
-            : this(parameters.MinimalCoverage, parameters.PoiCount, parameters.SensorCount, parameters.BatteryCapacity, parameters.AreaWidth)
-        { }
 
         private static ParamSetup _instance;
-
-        public string Value {get;set;}
         private static readonly object _lock = new object();
 
-        public static ParamSetup GetInstance(string value)
+        public static ParamSetup GetInstance()
         {
             if(_instance == null)
             {
@@ -51,30 +47,39 @@ namespace SensorLifetimeApp.Commons
                     if(_instance == null)
                     {
                         _instance = new ParamSetup();
-                        _instance.Value = value;
                     }
                 }
             }
             return _instance;
         }
-        public static ParamSetup GetInstance()
-        {
-            return ParamSetup.GetInstance("Singleton with program parameters");
-        }
         public static ParamSetup GetInstance(ParamSetupArray parameters)
         {
-            _instance = new ParamSetup(parameters);
+            lock (_lock)
+            {
+                _instance.SetFields(parameters);
+            }
             return _instance;
+        }
+
+        private void SetFields(ParamSetupArray param)
+        {
+            this._minimalCoverage = param.MinimalCoverage;
+            this._poiCount = param.PoiCount;
+            this._sensorCount = param.SensorCount;
+            this._batteryCapacity = param.BatteryCapacity;
+            this._batteryConsumption = param.BatteryConsumption;
+            this._areaWidth = param.AreaWidth;
         }
 
     }
 
-    class ParamSetupArray
+    public class ParamSetupArray
     {
         public float MinimalCoverage { get; set; }
         public int PoiCount { get; set; }
         public int SensorCount { get; set; }
         public int BatteryCapacity { get; set; }
+        public int BatteryConsumption { get; set; }
         public int AreaWidth { get; set; }
     }
 }
