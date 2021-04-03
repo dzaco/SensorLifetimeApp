@@ -66,7 +66,6 @@
     <Compile Include="Models\Area.cs" />
     <Compile Include="Models\Battery.cs" />
     <Compile Include="Models\POI.cs" />
-    <Compile Include="Models\Point.cs" />
     <Compile Include="Views\ProgressBar.xaml.cs">
       <DependentUpon>ProgressBar.xaml</DependentUpon>
     </Compile>

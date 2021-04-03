@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Xml.Serialization;
 
 namespace SensorLifetimeApp.Models
@@ -44,6 +45,16 @@ namespace SensorLifetimeApp.Models
             TextWriter writer = new StreamWriter(path);
             serializer.Serialize(writer, this);
             writer.Close();
+        }
+
+        public double DistanceTo(Point p)
+        {
+            var verticalDistance = p.Y - this.Point.Y;
+            verticalDistance = verticalDistance * verticalDistance;
+            var horizontalDistance = p.X - this.Point.X;
+            horizontalDistance = horizontalDistance * horizontalDistance;
+
+            return Math.Sqrt(verticalDistance + horizontalDistance);
         }
     }
 }
