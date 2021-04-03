@@ -80,7 +80,7 @@ namespace SensorLifetimeApp.Models
         public void WriteToFile(string path)
         {
             XmlWriterSettings settings = new XmlWriterSettings();
-            settings.OmitXmlDeclaration = false;
+            settings.OmitXmlDeclaration = true;
             settings.ConformanceLevel = ConformanceLevel.Fragment;
             settings.CloseOutput = false;
             settings.Indent = true;
@@ -88,7 +88,6 @@ namespace SensorLifetimeApp.Models
             var writer = XmlWriter.Create(path, settings);
             this.WriteXml(writer);
         }
-
         public bool Equals(POI other)
         {
             if (other is null)

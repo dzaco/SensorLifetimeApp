@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Sensor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ID>2</ID>
+﻿<Sensor ID="2">
   <Point x="10" y="10" />
   <Radius>3</Radius>
   <Battery power="Off" capacity="20" />

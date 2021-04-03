@@ -9,7 +9,6 @@ using System.Xml.Serialization;
 
 namespace SensorLifetimeApp.Models
 {
-    [Serializable()]
     [XmlRoot("Battery")]
     public class Battery
     {
