@@ -38,17 +38,22 @@ namespace SensorLifetimeApp.Models
         public Sensor(Area parent, int id, double x, double y, int radius) : this(parent, id, new Point(x,y), radius )
         { }
 
+
         private Sensor()
         { }
 
-        public double DistanceTo(Point p)
+        public double DistanceTo(POI p)
         {
-            var verticalDistance = p.Y - this.Point.Y;
+            var verticalDistance = p.Point.Y - this.Point.Y;
             verticalDistance = verticalDistance * verticalDistance;
-            var horizontalDistance = p.X - this.Point.X;
+            var horizontalDistance = p.Point.X - this.Point.X;
             horizontalDistance = horizontalDistance * horizontalDistance;
 
             return Math.Sqrt(verticalDistance + horizontalDistance);
+        }
+        public bool IsInRange(POI poi)
+        {
+            return this.DistanceTo(poi) <= this.Radius;
         }
 
         public XmlSchema GetSchema()
