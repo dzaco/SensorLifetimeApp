@@ -93,9 +93,7 @@ namespace SensorLifetimeApp.Models
             if (other is null)
                 return false;
             else
-                return this.ID == other.ID 
-                    && this.Point.X == other.Point.X 
-                    && this.Point.Y == other.Point.Y;
+                return (this.ID, this.Point.X, this.Point.Y) == (other.ID, other.Point.X, other.Point.Y);
         }
 
         public static bool operator==(POI v1, POI v2)
