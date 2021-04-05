@@ -29,6 +29,10 @@ namespace SensorLifetimeApp.Models
             return _instance;
         }
 
+        public void Clear()
+        {
+            this.Selected = null;
+        }
         public override string ToString()
         {
             if (this.Selected != null)
