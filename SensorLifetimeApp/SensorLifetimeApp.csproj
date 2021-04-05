@@ -62,10 +62,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commons\FileManager.cs" />
+    <Compile Include="Commons\Interfaces\IAreaComponentPropertyBuilder.cs" />
+    <Compile Include="Commons\Interfaces\ISelectable.cs" />
     <Compile Include="Enums\Power.cs" />
     <Compile Include="Models\Area.cs" />
+    <Compile Include="Models\AreaComponent.cs" />
     <Compile Include="Models\Battery.cs" />
     <Compile Include="Models\POI.cs" />
+    <Compile Include="Models\Selection.cs" />
     <Compile Include="Views\ProgressBar.xaml.cs">
       <DependentUpon>ProgressBar.xaml</DependentUpon>
     </Compile>

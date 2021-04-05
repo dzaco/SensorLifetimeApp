@@ -22,6 +22,8 @@ namespace SensorLifetimeApp.Commons
         private int _batteryConsumption;
         public int AreaWidth { get { return this._areaWidth; } }
         private int _areaWidth; 
+        public int RadiusDefault { get { return this._radiusDefault; } }
+        private int _radiusDefault;
         #endregion
 
 
@@ -33,6 +35,7 @@ namespace SensorLifetimeApp.Commons
             this._batteryCapacity = 20;
             this._batteryConsumption = 1;
             this._areaWidth = 100;
+            this._radiusDefault = 5;
         }
 
         private static ParamSetup _instance;
@@ -69,6 +72,7 @@ namespace SensorLifetimeApp.Commons
             this._batteryCapacity = param.BatteryCapacity;
             this._batteryConsumption = param.BatteryConsumption;
             this._areaWidth = param.AreaWidth;
+            this._radiusDefault = param.RadiusDefault;
         }
 
     }
@@ -81,5 +85,6 @@ namespace SensorLifetimeApp.Commons
         public int BatteryCapacity { get; set; }
         public int BatteryConsumption { get; set; }
         public int AreaWidth { get; set; }
+        public int RadiusDefault { get; set; }
     }
 }

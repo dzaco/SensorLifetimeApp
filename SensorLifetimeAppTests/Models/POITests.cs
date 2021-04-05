@@ -10,7 +10,7 @@ namespace SensorLifetimeApp.Models.Tests
         public void POITest()
         {
             var path = @"C:\Users\Dzaco\Desktop\Private\project\SensorLifetimeApp\SensorLifetimeApp\Resources\PoiState.xml";
-            var poi = new POI(null, 1, 10,10);
+            var poi = new POI(1, 10,10, null);
             //poi.WriteToFile(path);
 
             var poi2 = POI.ReadFromFile(path);

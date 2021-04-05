@@ -1,4 +1,5 @@
 ﻿using SensorLifetimeApp.Commons;
+using SensorLifetimeApp.Commons.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,37 +13,33 @@ using System.Xml.Serialization;
 
 namespace SensorLifetimeApp.Models
 {
-    public class POI : IXmlSerializable, IEquatable<POI>
+    public class POI : AreaComponent
     {
-        public int ID { get; set; }
-        public Point Point { get; set; }
+        #region Property
         public List<Sensor> CoverSensors { get; }
-        public Area Parent { get; }
-
-        private POI() { }
-        public POI(Area parent, int id, Point point)
+        #endregion
+        #region Constructor
+        public POI(int id, Point point, Area area) : base(id, point, area)
         {
-            ID = id;
-            Point = point;
-            Parent = parent;
-            //CoverSensors = Parent.GetSensorsForPOI(this);
+            CoverSensors = new List<Sensor>();
         }
 
-        public POI (Area parent, int id, double x, double y) : this(parent, id , new Point(x, y) ) { }
+        public POI(int id, int x, int y, Area area) : this(id, new Point(x,y), area)
+        { }
 
-        public XmlSchema GetSchema()
-        {
-            return null;
-        }
+        private POI() : base()
+        { }
 
-        public void ReadXml(XmlReader reader)
+        #endregion
+        #region XML
+        public override void ReadXml(XmlReader reader)
         {
             reader.Read();
             var id = reader.GetAttribute("ID");
-            ID = Int32.Parse( id );
+            ID = Int32.Parse(id);
 
             reader.Read();
-            while(reader.Name != "Point")
+            while (reader.Name != "Point")
             {
                 reader.Read();
             }
@@ -63,7 +60,7 @@ namespace SensorLifetimeApp.Models
             return poi;
         }
 
-        public void WriteXml(XmlWriter writer)
+        public override void WriteXml(XmlWriter writer)
         {
             writer.WriteStartElement("POI");
             writer.WriteAttributeString("ID", ID.ToString());
@@ -88,18 +85,11 @@ namespace SensorLifetimeApp.Models
             var writer = XmlWriter.Create(path, settings);
             this.WriteXml(writer);
         }
-        public bool Equals(POI other)
-        {
-            if (other is null)
-                return false;
-            else
-                return (this.ID, this.Point.X, this.Point.Y) == (other.ID, other.Point.X, other.Point.Y);
-        }
+        #endregion
 
-        public static bool operator==(POI v1, POI v2)
+        public override string ToString()
         {
-            return v1.Equals(v2);
+            return $"POI {ID}\nX={Point.X}, Y={Point.Y}";
         }
-        public static bool operator!=(POI v1, POI v2) => !v1.Equals(v2);
     }
 }

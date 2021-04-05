@@ -12,56 +12,40 @@ using System.Xml.Serialization;
 
 namespace SensorLifetimeApp.Models
 {
-    public class Sensor : IXmlSerializable, IEquatable<Sensor>
+    public class Sensor : AreaComponent
     {
-        public int ID { get; set; }
-        public Point Point { get; set; }
+        #region Property
         public int Radius { get; set; }
         public Battery Battery { get; set; }
-        public List<POI> CoveredPOIs { get; set; }
+        public List<POI> CoveredPOIs { get; }
+        #endregion
 
-
-        public Area Parent { get; set; }
-
-        public Sensor(Area parent, int id, Point point, int radius)
+        #region Constructor
+        private Sensor() { }
+        public Sensor(int id, Point point, Area area) : base(id, point, area)
         {
-            Parent = parent;
-            ID = id;
-            Point = point;
+            Radius = ParamSetup.RadiusDefault;
+            Battery = new Battery(Enums.Power.Off, ParamSetup.BatteryCapacity);
+            CoveredPOIs = new List<POI>();
+        }
+        public Sensor(int id, Point point, Area area, int radius, Battery battery) : base(id,point,area)
+        {
             Radius = radius;
-            Battery = new Battery();
-            CoveredPOIs = null;
+            Battery = battery;
+            CoveredPOIs = new List<POI>();
         }
 
-        
-
-        public Sensor(Area parent, int id, double x, double y, int radius) : this(parent, id, new Point(x,y), radius )
+        public Sensor(int id, int x, int y, Area area) : this(id, new Point(x,y), area)
         { }
+        #endregion
 
-
-        private Sensor()
-        { }
-
-        public double DistanceTo(POI p)
-        {
-            var verticalDistance = p.Point.Y - this.Point.Y;
-            verticalDistance = verticalDistance * verticalDistance;
-            var horizontalDistance = p.Point.X - this.Point.X;
-            horizontalDistance = horizontalDistance * horizontalDistance;
-
-            return Math.Sqrt(verticalDistance + horizontalDistance);
-        }
         public bool IsInRange(POI poi)
         {
-            return this.DistanceTo(poi) <= this.Radius;
+            return this.DistanceTo(poi.Point) <= this.Radius;
         }
 
-        public XmlSchema GetSchema()
-        {
-            return null;
-        }
-
-        public void ReadXml(XmlReader reader)
+        #region XML
+        public override void ReadXml(XmlReader reader)
         {
             reader.MoveToContent();
             var id = reader.GetAttribute("ID");
@@ -75,7 +59,7 @@ namespace SensorLifetimeApp.Models
 
             var x = reader.GetAttribute("x");
             var y = reader.GetAttribute("y");
-            
+
 
             Point = new Point(Int32.Parse(x), Int32.Parse(y));
 
@@ -84,7 +68,7 @@ namespace SensorLifetimeApp.Models
             {
                 reader.Read();
             }
-            Radius = Int32.Parse( reader.ReadElementString("Radius") );
+            Radius = Int32.Parse(reader.ReadElementString("Radius"));
             var batterySerializer = new XmlSerializer(typeof(Battery));
             Battery = (Battery)batterySerializer.Deserialize(reader);
         }
@@ -96,8 +80,7 @@ namespace SensorLifetimeApp.Models
             sensor.ReadXml(reader);
             return sensor;
         }
-
-        public void WriteXml(XmlWriter writer)
+        public override void WriteXml(XmlWriter writer)
         {
             writer.WriteStartElement("Sensor");
             writer.WriteAttributeString("ID", ID.ToString());
@@ -111,7 +94,7 @@ namespace SensorLifetimeApp.Models
 
             XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
             ns.Add("", "");
-            var batterySerializer = new XmlSerializer( typeof(Battery) );
+            var batterySerializer = new XmlSerializer(typeof(Battery));
             batterySerializer.Serialize(writer, Battery, ns);
 
             writer.WriteEndElement();
@@ -128,19 +111,11 @@ namespace SensorLifetimeApp.Models
             var writer = XmlWriter.Create(path, settings);
             this.WriteXml(writer);
         }
+        #endregion
 
-        public bool Equals(Sensor other)
+        public override string ToString()
         {
-            if (other is null)
-                return false;
-            else
-                return (this.ID, this.Point.X, this.Point.Y) == (other.ID, other.Point.X, other.Point.Y);
+            return $"Sensor {ID}\nX={Point.X}, Y={Point.Y} R={Radius}\nBattery {Battery.Power} {Battery.Capacity}%";
         }
-
-        public static bool operator==(Sensor v1, Sensor v2)
-        {
-            return v1.Equals(v2);
-        }
-        public static bool operator!=(Sensor v1, Sensor v2) => !(v1 == v2);
     }
 }
