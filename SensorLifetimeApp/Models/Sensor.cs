@@ -1,13 +1,8 @@
 ﻿using SensorLifetimeApp.Commons;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Xml;
-using System.Xml.Schema;
 using System.Xml.Serialization;
 
 namespace SensorLifetimeApp.Models
@@ -78,6 +73,7 @@ namespace SensorLifetimeApp.Models
             var sensor = new Sensor();
 
             sensor.ReadXml(reader);
+            reader.Close();
             return sensor;
         }
         public override void WriteXml(XmlWriter writer)
@@ -110,6 +106,7 @@ namespace SensorLifetimeApp.Models
 
             var writer = XmlWriter.Create(path, settings);
             this.WriteXml(writer);
+            writer.Close();
         }
         #endregion
 

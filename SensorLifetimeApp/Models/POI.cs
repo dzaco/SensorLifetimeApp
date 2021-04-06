@@ -57,6 +57,7 @@ namespace SensorLifetimeApp.Models
             var poi = new POI();
 
             poi.ReadXml(reader);
+            reader.Close();
             return poi;
         }
 
@@ -84,6 +85,7 @@ namespace SensorLifetimeApp.Models
 
             var writer = XmlWriter.Create(path, settings);
             this.WriteXml(writer);
+            writer.Close();
         }
         #endregion
 

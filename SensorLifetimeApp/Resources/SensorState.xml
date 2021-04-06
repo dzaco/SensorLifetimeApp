@@ -1,5 +1,5 @@
 ﻿<Sensor ID="2">
   <Point x="10" y="10" />
-  <Radius>3</Radius>
+  <Radius>5</Radius>
   <Battery power="Off" capacity="20" />
 </Sensor>

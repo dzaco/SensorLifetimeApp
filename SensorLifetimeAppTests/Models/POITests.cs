@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Windows;
 
 namespace SensorLifetimeApp.Models.Tests
 {
@@ -11,11 +10,11 @@ namespace SensorLifetimeApp.Models.Tests
         {
             var path = @"C:\Users\Dzaco\Desktop\Private\project\SensorLifetimeApp\SensorLifetimeApp\Resources\PoiState.xml";
             var poi = new POI(1, 10,10, null);
-            //poi.WriteToFile(path);
+            poi.WriteToFile(path);
 
             var poi2 = POI.ReadFromFile(path);
 
-            Assert.IsTrue(poi == poi2);
+            Assert.IsTrue(poi.Equals(poi2));
         }
     }
 }
