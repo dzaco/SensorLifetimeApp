@@ -12,7 +12,7 @@ using System.Xml.Serialization;
 
 namespace SensorLifetimeApp.Models
 {
-    public abstract class AreaComponent : IXmlSerializable, IEquatable<AreaComponent>, ISelectable
+    public abstract class AreaComponent : IXmlSerializable, ISelectable
     {
         #region Property
         public int ID { get; set; }
@@ -39,14 +39,19 @@ namespace SensorLifetimeApp.Models
         public abstract void WriteXml(XmlWriter writer);
         #endregion
         #region Object
-        public bool Equals(AreaComponent other)
+        public override bool Equals(object o)
         {
-            if (this is null && other is null)
+            if (this is null && o is null)
                 return true;
-            else if (other is null)
+            else if (o is null)
+                return false;
+            else if (!(o is AreaComponent))
                 return false;
             else
+            {
+                var other = o as AreaComponent;
                 return (this.ID, this.Point.X, this.Point.Y) == (other.ID, other.Point.X, other.Point.Y);
+            }
         }
         #endregion
 
