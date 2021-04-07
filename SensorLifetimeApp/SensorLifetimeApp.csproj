@@ -64,6 +64,7 @@
     <Compile Include="Commons\FileManager.cs" />
     <Compile Include="Commons\Interfaces\IAreaComponentPropertyBuilder.cs" />
     <Compile Include="Commons\Interfaces\ISelectable.cs" />
+    <Compile Include="Commons\Strings.cs" />
     <Compile Include="Enums\Language.cs" />
     <Compile Include="Enums\Names.cs" />
     <Compile Include="Enums\Power.cs" />
