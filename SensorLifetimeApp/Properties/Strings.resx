@@ -118,34 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Battery" xml:space="preserve">
-    <value>Bateria</value>
+    <value>Battery</value>
   </data>
   <data name="BatteryCapacity" xml:space="preserve">
-    <value>Pojemność Baterii</value>
+    <value>Battery Capacity</value>
   </data>
   <data name="CreatedUnderPath" xml:space="preserve">
-    <value>Stworzono pod ścieżką</value>
+    <value>Created Under the Path</value>
   </data>
   <data name="File" xml:space="preserve">
-    <value>Plik</value>
+    <value>File</value>
   </data>
   <data name="GenerateEmptyFile" xml:space="preserve">
-    <value>Generuj Pusty Plik XML</value>
+    <value>Generate Empty XML File</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>Język</value>
+    <value>Language</value>
   </data>
   <data name="LoadState" xml:space="preserve">
-    <value>Wczytaj Stan</value>
+    <value>Load State</value>
   </data>
   <data name="SaveState" xml:space="preserve">
-    <value>Zapisz Stan</value>
+    <value>Save State</value>
   </data>
   <data name="SensorRadius" xml:space="preserve">
-    <value>Promień Sensora</value>
+    <value>Sensor Radius</value>
   </data>
   <data name="ShowPOI" xml:space="preserve">
-    <value>Wyświetl POI</value>
+    <value>Show POIs</value>
   </data>
   <data name="TitleMainWindows" xml:space="preserve">
     <value>Sensor Lifetime GUI</value>

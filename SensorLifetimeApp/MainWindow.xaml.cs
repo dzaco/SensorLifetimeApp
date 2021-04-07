@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SensorLifetimeApp.Models;
+using System.Globalization;
+using System.Threading;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using SensorLifetimeApp.Enums;
+using SensorLifetimeApp.Commons;
 
 namespace SensorLifetimeApp
 {
@@ -22,7 +14,23 @@ namespace SensorLifetimeApp
     {
         public MainWindow()
         {
+            var config = Config.GetInstance();
+            var lang = config.XmlConfig.Language;
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(lang);
             InitializeComponent();
+        }
+
+        public MainWindow(MainWindow prevWindow)
+        {
+            // TODO if refresh - init area from prev window
+        }
+
+        private void Refresh()
+        {
+            MainWindow newWindow = new MainWindow();
+            Application.Current.MainWindow = newWindow;
+            newWindow.Show();
+            this.Close();
         }
 
         #region Buttons
@@ -39,17 +47,24 @@ namespace SensorLifetimeApp
 
         public void GenerateEmptyFileClick(object sender, RoutedEventArgs e)
         {
-
+            var xmlPath = FileManager.CreateEmptySensorFile();
+            MessageBox.Show(Properties.Strings.CreatedUnderPath + ": " + xmlPath);
         }
 
         public void LangEnClick(object sender, RoutedEventArgs e)
         {
-
+            var config = Config.GetInstance();
+            config.XmlConfig.Language = Enums.Language.EN;
+            config.Save();
+            Refresh();
         }
 
         public void LangPlClick(object sender, RoutedEventArgs e)
         {
-
+            var config = Config.GetInstance();
+            config.XmlConfig.Language = Enums.Language.PL;
+            config.Save();
+            Refresh();
         }
 
         #endregion

@@ -64,14 +64,38 @@
     <Compile Include="Commons\FileManager.cs" />
     <Compile Include="Commons\Interfaces\IAreaComponentPropertyBuilder.cs" />
     <Compile Include="Commons\Interfaces\ISelectable.cs" />
+    <Compile Include="Commons\Strings.cs" />
+    <Compile Include="Enums\Language.cs" />
+    <Compile Include="Enums\Names.cs" />
     <Compile Include="Enums\Power.cs" />
     <Compile Include="Models\Area.cs" />
     <Compile Include="Models\AreaComponent.cs" />
     <Compile Include="Models\Battery.cs" />
+    <Compile Include="Models\Config.cs" />
     <Compile Include="Models\POI.cs" />
     <Compile Include="Models\Selection.cs" />
+    <Compile Include="Models\XmlConfig.cs" />
+    <Compile Include="Properties\Strings.pl.Designer.cs">
+      <DependentUpon>Strings.pl.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProgressBar.xaml.cs">
       <DependentUpon>ProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingViewComponents\SettingPoiView.xaml.cs">
+      <DependentUpon>SettingPoiView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingViewComponents\SettingSensorView.xaml.cs">
+      <DependentUpon>SettingSensorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingView.xaml.cs">
+      <DependentUpon>SettingView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -90,6 +114,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SettingViewComponents\SettingPoiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingViewComponents\SettingSensorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\PoiManager.cs" />
@@ -98,29 +134,11 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Strings.pl.Designer.cs">
-      <DependentUpon>Strings.pl.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Properties\Strings.en.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Strings.en.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Properties\Strings.pl.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.pl.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Strings.en.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.en.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -134,6 +152,49 @@
     <Folder Include="Commons\Exceptions\" />
     <Folder Include="Resources\" />
     <Folder Include="Windows\Icons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Strings.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.pl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Strings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\png\blank-file.png" />
+    <Resource Include="Images\png\information-button.png" />
+    <Resource Include="Images\png\information-symbol.png" />
+    <Resource Include="Images\png\magic-wand.png" />
+    <Resource Include="Images\png\map-marker.png" />
+    <Resource Include="Images\png\open-folder-outline.png" />
+    <Resource Include="Images\png\open-folder.png" />
+    <Resource Include="Images\png\paper-push-pin.png" />
+    <Resource Include="Images\png\photo-camera.png" />
+    <Resource Include="Images\png\picture.png" />
+    <Resource Include="Images\png\save-file-option.png" />
+    <Resource Include="Images\png\sensor-logo.png" />
+    <Resource Include="Images\png\settings.png" />
+    <Resource Include="Images\png\text-file-1.png" />
+    <Resource Include="Images\png\text-file.png" />
+    <Resource Include="Images\png\warning-sign-on-a-triangular-background.png" />
+    <Content Include="Images\svg\blank-file.svg" />
+    <Content Include="Images\svg\information-button.svg" />
+    <Content Include="Images\svg\information-symbol.svg" />
+    <Content Include="Images\svg\magic-wand.svg" />
+    <Content Include="Images\svg\map-marker.svg" />
+    <Content Include="Images\svg\open-folder-outline.svg" />
+    <Content Include="Images\svg\open-folder.svg" />
+    <Content Include="Images\svg\paper-push-pin.svg" />
+    <Content Include="Images\svg\photo-camera.svg" />
+    <Content Include="Images\svg\picture.svg" />
+    <Content Include="Images\svg\save-file-option.svg" />
+    <Content Include="Images\svg\settings.svg" />
+    <Content Include="Images\svg\text-file-1.svg" />
+    <Content Include="Images\svg\text-file.svg" />
+    <Content Include="Images\svg\warning-sign-on-a-triangular-background.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
