@@ -20,7 +20,7 @@ namespace SensorLifetimeApp.Models
 
         public void Save()
         {
-            string path = FileManager.CreateFileIfNotExists(Names.ConfigFileName);
+            string path = FileManager.CreateFileIfNotExists(Names.ConfigFile);
             XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
             ns.Add("", "");
             XmlSerializer serializer = new XmlSerializer(this.GetType());
@@ -31,12 +31,12 @@ namespace SensorLifetimeApp.Models
         public static XmlConfig Load()
         {
 
-            if(!FileManager.Exists(Names.ConfigFileName))
+            if(!FileManager.Exists(Names.ConfigFile))
             {
                 return FileManager.CreateDefaultConfigFile();
             }
             XmlSerializer serializer = new XmlSerializer(typeof(XmlConfig));
-            StreamReader reader = new StreamReader(FileManager.GetFullPath(Names.ConfigFileName));
+            StreamReader reader = new StreamReader(FileManager.GetFullPath(Names.ConfigFile));
 
             XmlConfig config = serializer.Deserialize(reader) as XmlConfig;
             return config;

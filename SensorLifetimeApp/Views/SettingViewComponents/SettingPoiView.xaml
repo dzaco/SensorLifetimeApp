@@ -7,6 +7,10 @@
              xmlns:local="clr-namespace:SensorLifetimeApp.Views"
              mc:Ignorable="d" 
              d:DesignHeight="140" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Label x:Key="show">Wyswietl</Label>
+    </UserControl.Resources>
+    
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -34,7 +38,7 @@
         <Button Grid.Row="2" Grid.Column="1" Width="100" Height="20"
                 HorizontalAlignment="Center"
                 Name="ShowPoiButton"
-                Content="ShowPOI">
+                Content="{x:Static p:Strings.ShowPOI}">
         </Button>
     </Grid>
 </UserControl>

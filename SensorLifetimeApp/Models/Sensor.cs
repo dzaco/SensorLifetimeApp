@@ -112,7 +112,7 @@ namespace SensorLifetimeApp.Models
 
         public override string ToString()
         {
-            return $"Sensor {ID}\nX={Point.X}, Y={Point.Y} R={Radius}\nBattery {Battery.Power} {Battery.Capacity}%";
+            return $"Sensor {ID}\n X={Point.X}, Y={Point.Y} R={Radius}\n {Properties.Strings.Battery} {Battery.Power} {Battery.Capacity}%";
         }
     }
 }

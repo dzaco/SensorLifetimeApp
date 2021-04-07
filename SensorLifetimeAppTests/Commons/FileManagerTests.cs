@@ -32,8 +32,8 @@ namespace SensorLifetimeApp.Commons.Tests
         [TestMethod()]
         public void CreateDefaultConfigFileTest()
         {
-            FileManager.Delete(Names.ConfigFileName);
-            if (FileManager.Exists(Names.ConfigFileName))
+            FileManager.Delete(Names.ConfigFile);
+            if (FileManager.Exists(Names.ConfigFile))
                 Assert.Fail();
 
             var config = FileManager.CreateDefaultConfigFile();
@@ -44,6 +44,18 @@ namespace SensorLifetimeApp.Commons.Tests
                 Assert.Fail();
 
 
+        }
+
+        [TestMethod()]
+        public void CreateEmptySensorFileTest()
+        {
+
+            string xmlPath = FileManager.CreateEmptySensorFile();
+
+            if (!FileManager.Exists(xmlPath))
+            {
+                Assert.Fail();
+            }
         }
     }
 }

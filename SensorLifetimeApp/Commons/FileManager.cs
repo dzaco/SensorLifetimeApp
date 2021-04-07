@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SensorLifetimeApp.Commons
 {
@@ -50,12 +51,34 @@ namespace SensorLifetimeApp.Commons
 
         public static XmlConfig CreateDefaultConfigFile()
         {
-            FileManager.CreateFileIfNotExists(Names.ConfigFileName);
+            FileManager.CreateFileIfNotExists(Names.ConfigFile);
             XmlConfig config = new XmlConfig();
             config.Language = Language.EN;
             config.Save();
             return config;
         }
 
+        public static string CreateEmptySensorFile(string path)
+        {
+            var fullPath = GetFullPath(path);
+            if(Exists(fullPath))
+            {
+                int index = fullPath.LastIndexOf(".xml");
+                fullPath = fullPath.Substring(0, index) + "-copy.xml";
+                return CreateEmptySensorFile(fullPath);
+            }
+            else
+            {
+                var sensor = new Sensor(0, new Point(0,0), null, 0, new Battery(0,0));
+                sensor.WriteToFile(fullPath);
+                return fullPath;
+            }
+
+        }
+        public static string CreateEmptySensorFile()
+        {
+            var relPath = Names.EmptyXml;
+            return CreateEmptySensorFile(relPath);
+        }
     }
 }

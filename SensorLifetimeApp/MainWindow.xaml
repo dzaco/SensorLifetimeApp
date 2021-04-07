@@ -4,18 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SensorLifetimeApp.Views"
+        xmlns:p="clr-namespace:SensorLifetimeApp.Properties"
         mc:Ignorable="d"
-        Title="Sensors Lifetime" Height="600" Width="1000">
+        Title="{x:Static p:Strings.TitleMainWindows}" Height="600" Width="1000"
+        WindowStartupLocation="Manual" 
+        Left="0" Top="0">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="File">
-                <MenuItem Header="Load State" Click="LoadStateClick"/>
-                <MenuItem Header="Save State" Click="SaveStateClick"/>
-                <MenuItem Header="Generaet Empty State File" Click="GenerateEmptyFileClick"/>
+            <MenuItem Header="{x:Static p:Strings.File}">
+                <MenuItem Header="{x:Static p:Strings.LoadState}" Click="LoadStateClick"/>
+                <MenuItem Header="{x:Static p:Strings.SaveState}" Click="SaveStateClick"/>
+                <MenuItem Header="{x:Static p:Strings.GenerateEmptyFile}" Click="GenerateEmptyFileClick"/>
             </MenuItem>
-            <MenuItem Header="Language">
-                <MenuItem Header="en" Click="LangEnClick"/>
-                <MenuItem Header="pl" Click="LangPlClick"/>
+            <MenuItem Header="{x:Static p:Strings.Language}">
+                <MenuItem Header="EN" Click="LangEnClick"/>
+                <MenuItem Header="PL" Click="LangPlClick"/>
             </MenuItem>
         </Menu>
         <Border Margin="7">
