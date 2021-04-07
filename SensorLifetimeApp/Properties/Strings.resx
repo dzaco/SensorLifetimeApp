@@ -123,6 +123,9 @@
   <data name="BatteryCapacity" xml:space="preserve">
     <value>Battery Capacity</value>
   </data>
+  <data name="CreatedUnderPath" xml:space="preserve">
+    <value>Created Under the Path</value>
+  </data>
   <data name="File" xml:space="preserve">
     <value>File</value>
   </data>

@@ -163,6 +163,39 @@
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\png\blank-file.png" />
+    <Resource Include="Images\png\information-button.png" />
+    <Resource Include="Images\png\information-symbol.png" />
+    <Resource Include="Images\png\magic-wand.png" />
+    <Resource Include="Images\png\map-marker.png" />
+    <Resource Include="Images\png\open-folder-outline.png" />
+    <Resource Include="Images\png\open-folder.png" />
+    <Resource Include="Images\png\paper-push-pin.png" />
+    <Resource Include="Images\png\photo-camera.png" />
+    <Resource Include="Images\png\picture.png" />
+    <Resource Include="Images\png\save-file-option.png" />
+    <Resource Include="Images\png\sensor-logo.png" />
+    <Resource Include="Images\png\settings.png" />
+    <Resource Include="Images\png\text-file-1.png" />
+    <Resource Include="Images\png\text-file.png" />
+    <Resource Include="Images\png\warning-sign-on-a-triangular-background.png" />
+    <Content Include="Images\svg\blank-file.svg" />
+    <Content Include="Images\svg\information-button.svg" />
+    <Content Include="Images\svg\information-symbol.svg" />
+    <Content Include="Images\svg\magic-wand.svg" />
+    <Content Include="Images\svg\map-marker.svg" />
+    <Content Include="Images\svg\open-folder-outline.svg" />
+    <Content Include="Images\svg\open-folder.svg" />
+    <Content Include="Images\svg\paper-push-pin.svg" />
+    <Content Include="Images\svg\photo-camera.svg" />
+    <Content Include="Images\svg\picture.svg" />
+    <Content Include="Images\svg\save-file-option.svg" />
+    <Content Include="Images\svg\settings.svg" />
+    <Content Include="Images\svg\text-file-1.svg" />
+    <Content Include="Images\svg\text-file.svg" />
+    <Content Include="Images\svg\warning-sign-on-a-triangular-background.svg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

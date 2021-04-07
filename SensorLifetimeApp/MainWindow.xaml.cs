@@ -48,6 +48,7 @@ namespace SensorLifetimeApp
         public void GenerateEmptyFileClick(object sender, RoutedEventArgs e)
         {
             var xmlPath = FileManager.CreateEmptySensorFile();
+            MessageBox.Show(Properties.Strings.CreatedUnderPath + ": " + xmlPath);
         }
 
         public void LangEnClick(object sender, RoutedEventArgs e)

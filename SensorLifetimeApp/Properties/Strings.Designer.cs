@@ -79,6 +79,15 @@ namespace SensorLifetimeApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Created Under the Path.
+        /// </summary>
+        public static string CreatedUnderPath {
+            get {
+                return ResourceManager.GetString("CreatedUnderPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File.
         /// </summary>
         public static string File {
