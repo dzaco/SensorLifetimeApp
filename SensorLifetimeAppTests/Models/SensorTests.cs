@@ -22,7 +22,7 @@ namespace SensorLifetimeApp.Models.Tests
         public void DistanceToTest()
         {
             var sensor = new Sensor(1, 10,10, null);
-            var poi = new POI(1, 9,9, null);
+            var poi = new POI(1, 9,9, null); 
 
             //var distance = sensor.DistanceTo(poi.Point.X, poi.Point.Y);
             //Assert.IsTrue(distance == 5);

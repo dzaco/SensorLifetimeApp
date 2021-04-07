@@ -64,12 +64,16 @@
     <Compile Include="Commons\FileManager.cs" />
     <Compile Include="Commons\Interfaces\IAreaComponentPropertyBuilder.cs" />
     <Compile Include="Commons\Interfaces\ISelectable.cs" />
+    <Compile Include="Enums\Language.cs" />
+    <Compile Include="Enums\Names.cs" />
     <Compile Include="Enums\Power.cs" />
     <Compile Include="Models\Area.cs" />
     <Compile Include="Models\AreaComponent.cs" />
     <Compile Include="Models\Battery.cs" />
+    <Compile Include="Models\Config.cs" />
     <Compile Include="Models\POI.cs" />
     <Compile Include="Models\Selection.cs" />
+    <Compile Include="Models\XmlConfig.cs" />
     <Compile Include="Views\ProgressBar.xaml.cs">
       <DependentUpon>ProgressBar.xaml</DependentUpon>
     </Compile>
@@ -119,29 +123,11 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Strings.pl.Designer.cs">
-      <DependentUpon>Strings.pl.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Properties\Strings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Strings.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Resource Include="Properties\Strings.pl.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.pl.Designer.cs</LastGenOutput>
-    </Resource>
-    <Content Include="Properties\Strings.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
-    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
