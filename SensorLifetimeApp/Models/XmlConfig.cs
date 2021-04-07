@@ -18,7 +18,7 @@ namespace SensorLifetimeApp.Models
         [XmlElement(elementName: "Language")]
         public string Language { get; set; }
 
-        public void Serialize()
+        public void Save()
         {
             string path = FileManager.CreateFileIfNotExists(Names.ConfigFileName);
             XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
@@ -28,7 +28,7 @@ namespace SensorLifetimeApp.Models
             serializer.Serialize(streamWriter, this, ns);
         }
 
-        public static XmlConfig Deserialize()
+        public static XmlConfig Load()
         {
 
             if(!FileManager.Exists(Names.ConfigFileName))

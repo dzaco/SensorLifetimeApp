@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 namespace SensorLifetimeApp.Models
 {
     
-    class Config
+    public class Config
     {
         #region Singleton
         private static Config _instance;
@@ -29,10 +29,25 @@ namespace SensorLifetimeApp.Models
                 }
             }
             return _instance;
-        } 
+        }
         #endregion
 
-        public XmlConfig XmlConfig { get; set; }
+        private XmlConfig xml;
+        public XmlConfig XmlConfig
+        {
+            get
+            {
+                if (xml == null)
+                    xml = XmlConfig.Load();
+
+                return xml;
+            }
+
+        }
+        public void Save()
+        {
+            XmlConfig.Save();
+        }
       
     }
 }

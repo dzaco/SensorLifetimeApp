@@ -53,7 +53,7 @@ namespace SensorLifetimeApp.Commons
             FileManager.CreateFileIfNotExists(Names.ConfigFileName);
             XmlConfig config = new XmlConfig();
             config.Language = Language.EN;
-            config.Serialize();
+            config.Save();
             return config;
         }
 

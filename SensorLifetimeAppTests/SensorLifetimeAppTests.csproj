@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Commons\FileManagerTests.cs" />
     <Compile Include="Commons\ParamSetupTests.cs" />
+    <Compile Include="Models\ConfigTests.cs" />
     <Compile Include="Models\POITests.cs" />
     <Compile Include="Models\SelectionTests.cs" />
     <Compile Include="Models\SensorTests.cs" />
