@@ -97,6 +97,15 @@ namespace SensorLifetimeApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File Not Find.
+        /// </summary>
+        public static string FileNotFind {
+            get {
+                return ResourceManager.GetString("FileNotFind", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generate Empty XML File.
         /// </summary>
         public static string GenerateEmptyFile {

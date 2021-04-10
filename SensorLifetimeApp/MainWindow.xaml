@@ -43,7 +43,9 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <local:SettingView></local:SettingView>
+                <local:SettingView Grid.Column="0"></local:SettingView>
+                <local:AreaView Grid.Column="1"
+                                Margin="20"></local:AreaView>
             </Grid>
         </Border>
     </DockPanel>

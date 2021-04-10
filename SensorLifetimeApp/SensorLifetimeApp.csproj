@@ -61,6 +61,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commons\Exceptions\ExceptionWithMessage.cs" />
+    <Compile Include="Commons\Exceptions\FileException.cs" />
     <Compile Include="Commons\FileManager.cs" />
     <Compile Include="Commons\Interfaces\IAreaComponentPropertyBuilder.cs" />
     <Compile Include="Commons\Interfaces\ISelectable.cs" />
@@ -68,12 +70,15 @@
     <Compile Include="Enums\Language.cs" />
     <Compile Include="Enums\Names.cs" />
     <Compile Include="Enums\Power.cs" />
+    <Compile Include="Enums\SensorActivationType.cs" />
     <Compile Include="Models\Area.cs" />
     <Compile Include="Models\AreaComponent.cs" />
     <Compile Include="Models\Battery.cs" />
     <Compile Include="Models\Config.cs" />
     <Compile Include="Models\POI.cs" />
+    <Compile Include="Models\PoiCollection.cs" />
     <Compile Include="Models\Selection.cs" />
+    <Compile Include="Models\SensorCollection.cs" />
     <Compile Include="Models\XmlConfig.cs" />
     <Compile Include="Properties\Strings.pl.Designer.cs">
       <DependentUpon>Strings.pl.resx</DependentUpon>
@@ -84,6 +89,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AreaView.xaml.cs">
+      <DependentUpon>AreaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProgressBar.xaml.cs">
       <DependentUpon>ProgressBar.xaml</DependentUpon>
@@ -110,6 +118,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AreaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ProgressBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,7 +161,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commons\Exceptions\" />
     <Folder Include="Resources\" />
     <Folder Include="Windows\Icons\" />
   </ItemGroup>
