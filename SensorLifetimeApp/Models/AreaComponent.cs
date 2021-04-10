@@ -15,9 +15,9 @@ namespace SensorLifetimeApp.Models
     public abstract class AreaComponent : IXmlSerializable, ISelectable
     {
         #region Property
-        public int ID { get; set; }
-        public Point Point { get; set; }
-        public Area Parent { get; }
+        public int ID { get; protected set; }
+        public Point Point { get; protected set; }
+        public Area Parent { get; protected set; }
 
         public ParamSetup ParamSetup => ParamSetup.GetInstance();
         #endregion

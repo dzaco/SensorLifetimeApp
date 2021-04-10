@@ -10,8 +10,8 @@ namespace SensorLifetimeApp.Models
     public class Sensor : AreaComponent
     {
         #region Property
-        public int Radius { get; set; }
-        public Battery Battery { get; set; }
+        public int Radius { get; private set; }
+        public Battery Battery { get; private set; }
         public List<POI> CoveredPOIs { get; }
         #endregion
 
