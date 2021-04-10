@@ -70,7 +70,10 @@ namespace SensorLifetimeApp.Commons
             else
             {
                 var sensor = new Sensor(0, new Point(0,0), null, 0, new Battery(0,0));
-                sensor.WriteToFile(fullPath);
+                var sensorCollection = new SensorCollection();
+                sensorCollection.List.Add(sensor);
+
+                sensorCollection.WriteToFile(fullPath);
                 return fullPath;
             }
 
