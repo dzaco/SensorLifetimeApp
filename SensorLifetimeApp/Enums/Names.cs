@@ -8,8 +8,8 @@ namespace SensorLifetimeApp.Enums
 {
     public class Names
     {
-        public static string ConfigFile = "config.xml";
-
-        public static string EmptyXml = "emptyState.xml";
+        public static string ConfigFile { get { return "config.xml"; } }
+        public static string EmptyXml { get { return "emptyState.xml"; } }
+        public static string SensorCollectionXml { get { return "SensorCollection.xml"; } }
     }
 }
