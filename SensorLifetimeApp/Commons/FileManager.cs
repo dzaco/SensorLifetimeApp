@@ -37,6 +37,10 @@ namespace SensorLifetimeApp.Commons
             else
                 fullPath = relative;
 
+            if (!Exists(fullPath))
+                return CreateFileIfNotExists(fullPath);
+
+
             return fullPath;
         }
 
