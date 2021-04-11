@@ -14,9 +14,9 @@ namespace SensorLifetimeApp
     {
         public MainWindow()
         {
-            var config = Config.GetInstance();
-            var lang = config.XmlConfig.Language;
-            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(lang);
+            //var config = Config.GetInstance();
+            //var lang = config.XmlConfig.Language;
+            //Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(lang);
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             WindowState = WindowState.Maximized;
             InitializeComponent();
