@@ -1,5 +1,6 @@
 ﻿using SensorLifetimeApp.Enums;
 using SensorLifetimeApp.Models;
+using SensorLifetimeApp.Settings;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,6 +15,8 @@ namespace SensorLifetimeApp.Commons
     {
         private static string ProjectPath = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory())));
         private static string ResourcePath = Path.Combine(ProjectPath, "SensorLifetimeApp", "Resources");
+        private static string ConfigFile = Path.Combine(ResourcePath, "config.xml");
+
         public static string CreateFileIfNotExists(string path)
         {
             string fullPath = GetFullPath(path);
@@ -73,6 +76,43 @@ namespace SensorLifetimeApp.Commons
             }
 
         }
+
+        public static Stream ReadStream(string path)
+        {
+            Stream stream = new MemoryStream();
+            using (var fs = new FileStream(path, FileMode.Open))
+            {
+                fs.Seek(0, SeekOrigin.Begin);
+                fs.CopyTo(stream);
+            }
+            return stream;
+        }
+
+        public static void SaveStream(MemoryStream stream, string path)
+        {
+            using (var fs = new FileStream(path, FileMode.Create))
+            {
+                stream.Seek(0, SeekOrigin.Begin);
+                stream.CopyTo(fs);
+            }
+        }
+
+        public static void SaveConfig(Stream stream)
+        {
+            SaveStream(stream as MemoryStream, ConfigFile);
+        }
+
+        public static Stream ReadConfig()
+        {
+            if (!Exists(ConfigFile))
+                CreateFileIfNotExists(ConfigFile);
+
+            var setting = new ApplicationSettings();
+            setting.SaveToStorage();
+
+            return ReadStream(ConfigFile);
+        }
+
         public static string CreateEmptySensorFile()
         {
             var relPath = Names.EmptyXml;

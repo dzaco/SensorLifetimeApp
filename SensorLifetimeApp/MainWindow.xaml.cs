@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows;
 using SensorLifetimeApp.Enums;
 using SensorLifetimeApp.Commons;
+using SensorLifetimeApp.Settings;
 
 namespace SensorLifetimeApp
 {
@@ -12,10 +13,12 @@ namespace SensorLifetimeApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ApplicationSettings Settings;
+
         public MainWindow()
         {
+            Settings = new ApplicationSettings();
             var lang = Properties.Settings.Default.Language;
-            
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(lang);
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             WindowState = WindowState.Maximized;
@@ -56,12 +59,14 @@ namespace SensorLifetimeApp
         public void LangEnClick(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Language = Enums.Language.EN;
+            Settings.Language = Enums.Language.EN;
             Refresh();
         }
 
         public void LangPlClick(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Language = Enums.Language.PL;
+            Settings.Language = Enums.Language.PL;
             Refresh();
         }
 

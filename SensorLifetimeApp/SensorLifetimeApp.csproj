@@ -43,6 +43,12 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Primitives, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Serialization.Primitives.4.3.0\lib\net46\System.Runtime.Serialization.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -66,6 +72,7 @@
     <Compile Include="Commons\FileManager.cs" />
     <Compile Include="Commons\Interfaces\IAreaComponentPropertyBuilder.cs" />
     <Compile Include="Commons\Interfaces\ISelectable.cs" />
+    <Compile Include="Commons\SerializationHelpers.cs" />
     <Compile Include="Enums\Language.cs" />
     <Compile Include="Enums\Names.cs" />
     <Compile Include="Enums\Power.cs" />
@@ -87,6 +94,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="Settings\ApplicationSettings.cs" />
+    <Compile Include="Settings\ParamSettings.cs" />
     <Compile Include="Views\AreaView.xaml.cs">
       <DependentUpon>AreaView.xaml</DependentUpon>
     </Compile>
