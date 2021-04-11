@@ -70,5 +70,10 @@ namespace SensorLifetimeApp.Models
         {
             this.Parent.Selection.Selected = this;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

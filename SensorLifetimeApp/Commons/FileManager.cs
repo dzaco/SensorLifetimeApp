@@ -53,15 +53,6 @@ namespace SensorLifetimeApp.Commons
                 File.Delete(fullPath);
         }
 
-        public static XmlConfig CreateDefaultConfigFile()
-        {
-            FileManager.CreateFileIfNotExists(Names.ConfigFile);
-            XmlConfig config = new XmlConfig();
-            config.Language = Language.EN;
-            config.Save();
-            return config;
-        }
-
         public static string CreateEmptySensorFile(string path)
         {
             var fullPath = GetFullPath(path);

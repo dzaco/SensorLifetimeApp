@@ -14,9 +14,9 @@ namespace SensorLifetimeApp
     {
         public MainWindow()
         {
-            //var config = Config.GetInstance();
-            //var lang = config.XmlConfig.Language;
-            //Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(lang);
+            var lang = Properties.Settings.Default.Language;
+            
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(lang);
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             WindowState = WindowState.Maximized;
             InitializeComponent();
@@ -55,17 +55,13 @@ namespace SensorLifetimeApp
 
         public void LangEnClick(object sender, RoutedEventArgs e)
         {
-            var config = Config.GetInstance();
-            config.XmlConfig.Language = Enums.Language.EN;
-            config.Save();
+            Properties.Settings.Default.Language = Enums.Language.EN;
             Refresh();
         }
 
         public void LangPlClick(object sender, RoutedEventArgs e)
         {
-            var config = Config.GetInstance();
-            config.XmlConfig.Language = Enums.Language.PL;
-            config.Save();
+            Properties.Settings.Default.Language = Enums.Language.PL;
             Refresh();
         }
 

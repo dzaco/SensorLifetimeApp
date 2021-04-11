@@ -66,7 +66,6 @@
     <Compile Include="Commons\FileManager.cs" />
     <Compile Include="Commons\Interfaces\IAreaComponentPropertyBuilder.cs" />
     <Compile Include="Commons\Interfaces\ISelectable.cs" />
-    <Compile Include="Commons\Strings.cs" />
     <Compile Include="Enums\Language.cs" />
     <Compile Include="Enums\Names.cs" />
     <Compile Include="Enums\Power.cs" />
@@ -74,12 +73,10 @@
     <Compile Include="Models\Area.cs" />
     <Compile Include="Models\AreaComponent.cs" />
     <Compile Include="Models\Battery.cs" />
-    <Compile Include="Models\Config.cs" />
     <Compile Include="Models\POI.cs" />
     <Compile Include="Models\PoiCollection.cs" />
     <Compile Include="Models\Selection.cs" />
     <Compile Include="Models\SensorCollection.cs" />
-    <Compile Include="Models\XmlConfig.cs" />
     <Compile Include="Properties\Strings.pl.Designer.cs">
       <DependentUpon>Strings.pl.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -162,7 +159,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="Windows\Icons\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Strings.pl.resx">

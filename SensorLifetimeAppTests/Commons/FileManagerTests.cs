@@ -29,22 +29,6 @@ namespace SensorLifetimeApp.Commons.Tests
                 Assert.Fail();
         }
 
-        [TestMethod()]
-        public void CreateDefaultConfigFileTest()
-        {
-            FileManager.Delete(Names.ConfigFile);
-            if (FileManager.Exists(Names.ConfigFile))
-                Assert.Fail();
-
-            var config = FileManager.CreateDefaultConfigFile();
-            if (config == null)
-                Assert.Fail();
-
-            if (config.Language != Language.EN)
-                Assert.Fail();
-
-
-        }
 
         [TestMethod()]
         public void CreateEmptySensorFileTest()
