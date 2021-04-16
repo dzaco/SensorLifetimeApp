@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace SensorLifetimeApp.Settings
+namespace SensorLifetimeApp.Settings.Model
 {
     [XmlRoot("Settings")]
     public class ApplicationSettings

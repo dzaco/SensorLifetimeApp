@@ -4,7 +4,7 @@ using System.Threading;
 using System.Windows;
 using SensorLifetimeApp.Enums;
 using SensorLifetimeApp.Commons;
-using SensorLifetimeApp.Settings;
+using SensorLifetimeApp.Settings.Model;
 
 namespace SensorLifetimeApp
 {

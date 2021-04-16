@@ -8,10 +8,8 @@
              d:DesignHeight="550" d:DesignWidth="550"
              Loaded="AreaRectangleLoaded">
 
-    <Canvas >
-        <Rectangle Name="AreaRectangle">
-            
-        </Rectangle>
+    <Canvas Name="myCanvas">
+        
     </Canvas>
 
 </UserControl>

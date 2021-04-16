@@ -14,6 +14,10 @@ namespace SensorLifetimeApp.Models
     {
         [XmlAttribute(attributeName: "power")]
         public Power Power { get; set; }
+        
+        [XmlIgnore]
+        public bool IsActive { get { return Power == Enums.Power.On; } }
+
         //private int _capacity;
         [XmlAttribute(attributeName: "capacity")]
         public int Capacity { get; set; }

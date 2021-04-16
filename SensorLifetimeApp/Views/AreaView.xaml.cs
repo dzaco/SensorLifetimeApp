@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SensorLifetimeApp.Commons;
+using SensorLifetimeApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,25 +22,37 @@ namespace SensorLifetimeApp.Views
     /// </summary>
     public partial class AreaView : UserControl
     {
+        private AreaViewModel AreaViewModel { get; }
+
         public AreaView()
         {
+            AreaViewModel = new AreaViewModel();
             InitializeComponent();
         }
 
         private void AreaRectangleLoaded(object sender, RoutedEventArgs e)
         {
-            AreaRectangle.Width = 500;
-            AreaRectangle.Height= 500;
-            AreaRectangle.Stroke = Brushes.Black;
-            AreaRectangle.StrokeThickness = 1;
-            
+            ParamSetup param = ParamSetup.GetInstance();
+            var areaRectangle = new Rectangle();
+            areaRectangle.Width = 100 * param.Scale + 5;
+            areaRectangle.Height= 100 * param.Scale + 5;
+            areaRectangle.Stroke = Brushes.Black;
+            areaRectangle.StrokeThickness = 1;
 
-            var POI = new EllipseGeometry
+            myCanvas.Children.Add(areaRectangle);
+
+            //myCanvas.Children.Add( AreaViewModel.PoiViewModelCollection.Select(poi => poi.GetShape()) as Shape );
+            foreach(POIViewModel poi in AreaViewModel.PoiViewModelCollection)
             {
-                Center = new Point(1,1),
-                RadiusX = 3,
-                RadiusY = 3,
-            };
+                //myCanvas.Children.Add//AddRange( poi.GetShape() );
+                poi.GetShapes().ForEach(s => myCanvas.Children.Add(s));
+            }
+
+            foreach(SensorViewModel sensor in AreaViewModel.SensorViewModelCollection)
+            {
+                sensor.GetShapes().ForEach(s => myCanvas.Children.Add(s));
+            }
+            
         }
     }
 }

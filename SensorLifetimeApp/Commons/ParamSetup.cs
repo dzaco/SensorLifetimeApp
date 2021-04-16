@@ -26,6 +26,9 @@ namespace SensorLifetimeApp.Commons
         private int _radiusDefault;
         public double ActiveSensorProbability { get { return this._activeSensorProbability; } }
         private double _activeSensorProbability;
+
+        public double Scale { get { return this._scale; } }
+        private double _scale;
         #endregion
 
 
@@ -37,8 +40,9 @@ namespace SensorLifetimeApp.Commons
             this._batteryCapacity = 20;
             this._batteryConsumption = 1;
             this._areaWidth = 100;
-            this._radiusDefault = 5;
+            this._radiusDefault = 20;
             this._activeSensorProbability = 0.5;
+            this._scale = 5;
         }
 
         private static ParamSetup _instance;
@@ -77,6 +81,7 @@ namespace SensorLifetimeApp.Commons
             this._areaWidth = param.AreaWidth;
             this._radiusDefault = param.RadiusDefault;
             this._activeSensorProbability = param.ActiveSensorProbability;
+            this._scale = param.Scale;
         }
 
     }
@@ -91,5 +96,6 @@ namespace SensorLifetimeApp.Commons
         public int AreaWidth { get; set; }
         public int RadiusDefault { get; set; }
         public double ActiveSensorProbability { get; set; }
+        public double Scale { get; set; }
     }
 }

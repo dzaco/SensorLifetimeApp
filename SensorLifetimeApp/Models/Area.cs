@@ -10,6 +10,7 @@ namespace SensorLifetimeApp.Models
         private ParamSetup ParamSetup { get; }
         private int Width { get; }
         public PoiCollection PoiCollection { get; }
+        public SensorCollection SensorCollection { get; }
 
         public Area()
         {
@@ -17,8 +18,7 @@ namespace SensorLifetimeApp.Models
             this.Width = ParamSetup.AreaWidth;
 
             PoiCollection = new PoiCollection(this);
-
-            
+            SensorCollection = new SensorCollection(Enums.SensorActivationType.Random, ParamSetup);
 
         }
         public Selection Selection { get { return Selection.GetInstance(); } }

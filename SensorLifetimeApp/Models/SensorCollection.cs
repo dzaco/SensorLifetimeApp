@@ -2,6 +2,7 @@
 using SensorLifetimeApp.Commons.Exceptions;
 using SensorLifetimeApp.Enums;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,9 @@ using System.Xml.Serialization;
 
 namespace SensorLifetimeApp.Models
 {
-    public class SensorCollection : IXmlSerializable
+    public class SensorCollection : IXmlSerializable, IEnumerable
     {
-        private ParamSetup ParamSetup = ParamSetup.GetInstance();
+        private ParamSetup ParamSetup;
 
         public List<Sensor> List { get; private set; }
         public Area Parent { get; set; }
@@ -23,9 +24,12 @@ namespace SensorLifetimeApp.Models
         public SensorCollection()
         {
             this.List = new List<Sensor>();
+            this.ParamSetup = ParamSetup.GetInstance();
         }
-        public SensorCollection( SensorActivationType type )
+        public SensorCollection( SensorActivationType type , ParamSetup param)
         {
+            ParamSetup = param;
+
             if (type == SensorActivationType.Random)
                 List = InitRandSensorCollection();
             else
@@ -103,6 +107,11 @@ namespace SensorLifetimeApp.Models
             }
             writer.WriteEndElement();
             writer.Flush();
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return this.List.GetEnumerator();
         }
     }
 }

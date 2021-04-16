@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
-namespace SensorLifetimeApp.Settings
+namespace SensorLifetimeApp.Settings.Model
 {
     [XmlType("ParamSettings", Namespace = "")]
     public class ParamSettings

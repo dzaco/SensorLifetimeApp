@@ -1,6 +1,6 @@
 ﻿using SensorLifetimeApp.Enums;
 using SensorLifetimeApp.Models;
-using SensorLifetimeApp.Settings;
+using SensorLifetimeApp.Settings.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -40,8 +40,8 @@ namespace SensorLifetimeApp.Commons
             else
                 fullPath = relative;
 
-            if (!Exists(fullPath))
-                return CreateFileIfNotExists(fullPath);
+            //if (!Exists(fullPath))
+            //    return CreateFileIfNotExists(fullPath);
 
 
             return fullPath;

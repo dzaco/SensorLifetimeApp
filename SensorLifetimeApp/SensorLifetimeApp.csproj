@@ -42,6 +42,10 @@
       <HintPath>..\packages\NUnit.3.13.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.Serialization.Primitives, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -71,6 +75,7 @@
     <Compile Include="Commons\Exceptions\FileException.cs" />
     <Compile Include="Commons\FileManager.cs" />
     <Compile Include="Commons\Interfaces\IAreaComponentPropertyBuilder.cs" />
+    <Compile Include="Commons\Interfaces\IDrawable.cs" />
     <Compile Include="Commons\Interfaces\ISelectable.cs" />
     <Compile Include="Commons\SerializationHelpers.cs" />
     <Compile Include="Enums\Language.cs" />
@@ -94,8 +99,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
-    <Compile Include="Settings\ApplicationSettings.cs" />
-    <Compile Include="Settings\ParamSettings.cs" />
+    <Compile Include="Settings\Model\ApplicationSettings.cs" />
+    <Compile Include="Settings\Model\ParamSettings.cs" />
+    <Compile Include="ViewModel\ApplicationSettingsViewModel.cs" />
+    <Compile Include="ViewModel\AreaViewModel.cs" />
+    <Compile Include="ViewModel\POIViewModel.cs" />
+    <Compile Include="ViewModel\SensorViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="Views\AreaView.xaml.cs">
       <DependentUpon>AreaView.xaml</DependentUpon>
     </Compile>
