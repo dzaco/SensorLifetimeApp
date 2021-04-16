@@ -1,7 +1,9 @@
-﻿using System;
+﻿using SensorLifetimeApp.Commons;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,9 +22,23 @@ namespace SensorLifetimeApp.Views
     /// </summary>
     public partial class SettingSensorView : UserControl
     {
+        public ParamSetup ParamSetup = ParamSetup.GetInstance();
         public SettingSensorView()
         {
+            
             InitializeComponent();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.SensorRadiusBox.Text = ParamSetup.RadiusDefault.ToString();
+            BatteryCapacityBox.Text = ParamSetup.BatteryCapacity.ToString();
+        }
+
+        private void NumberPreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

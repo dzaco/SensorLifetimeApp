@@ -36,7 +36,7 @@ namespace SensorLifetimeApp.ViewModel
             }
             else
             {
-                var brush = new SolidColorBrush(Color.FromArgb(100, (byte)255, (byte)0, (byte)0));
+                var brush = new SolidColorBrush(Color.FromArgb(30, (byte)255, (byte)0, (byte)0));
                 circle.Fill = brush;
                 circle.Stroke = brush;
             }

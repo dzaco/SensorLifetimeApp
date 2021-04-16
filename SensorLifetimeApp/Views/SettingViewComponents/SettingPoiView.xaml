@@ -24,22 +24,25 @@
         </Grid.ColumnDefinitions>
 
         <RadioButton Grid.Row="1" Grid.Column="0" 
+                     Name="POI36Btn"
             VerticalAlignment="Center" HorizontalAlignment="Center">
             POI 36
         </RadioButton>
         <RadioButton Grid.Row="1" Grid.Column="1" 
+                     Name="POI121Btn"
             VerticalAlignment="Center" HorizontalAlignment="Center">
             POI 121
         </RadioButton>
         <RadioButton Grid.Row="1" Grid.Column="2" 
+                     Name="POI441Btn"
             VerticalAlignment="Center" HorizontalAlignment="Center">
             POI 441
         </RadioButton>
-        <Button Grid.Row="2" Grid.Column="1" Width="100" Height="20"
+        <!--<Button Grid.Row="2" Grid.Column="1" Width="100" Height="20"
                 HorizontalAlignment="Center"
                 Name="ShowPoiButton"
                 Content="{x:Static p:Strings.ShowPOI}">
-        </Button>
+        </Button>-->
     </Grid>
 </UserControl>
 

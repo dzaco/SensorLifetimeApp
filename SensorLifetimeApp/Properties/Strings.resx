@@ -141,6 +141,9 @@
   <data name="LoadState" xml:space="preserve">
     <value>Load State</value>
   </data>
+  <data name="Rebuild" xml:space="preserve">
+    <value>Rebuild</value>
+  </data>
   <data name="SaveState" xml:space="preserve">
     <value>Save State</value>
   </data>

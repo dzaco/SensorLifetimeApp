@@ -6,11 +6,13 @@
              xmlns:local="clr-namespace:SensorLifetimeApp.Views"
              xmlns:p ="clr-namespace:SensorLifetimeApp.Properties"
              mc:Ignorable="d" 
-             d:DesignHeight="140" d:DesignWidth="300">
+             d:DesignWidth="300"
+             Loaded="UserControl_Loaded">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="70"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -24,7 +26,8 @@
         </Label>
         <TextBox Grid.Row="0" Grid.Column="1"
                  Width="100" Height="20"
-                 Name="SensorRadiusBox">
+                 Name="SensorRadiusBox"
+                 PreviewTextInput="NumberPreviewTextInput">
         </TextBox>
 
         <Label Grid.Row="1" Grid.Column="0"
@@ -33,7 +36,8 @@
         </Label>
         <TextBox Grid.Row="1" Grid.Column="1"
                  Width="100" Height="20"
-                 Name="BatteryCapacityBox">
+                 Name="BatteryCapacityBox"
+                 PreviewTextInput="NumberPreviewTextInput">
         </TextBox>
     </Grid>
 </UserControl>

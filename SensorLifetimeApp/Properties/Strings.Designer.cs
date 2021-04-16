@@ -133,6 +133,15 @@ namespace SensorLifetimeApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rebuild.
+        /// </summary>
+        public static string Rebuild {
+            get {
+                return ResourceManager.GetString("Rebuild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save State.
         /// </summary>
         public static string SaveState {
