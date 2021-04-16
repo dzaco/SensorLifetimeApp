@@ -8,36 +8,5 @@
              mc:Ignorable="d" 
              d:DesignWidth="300"
              Loaded="UserControl_Loaded">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height="20"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
-
-        <Label Grid.Row="0" Grid.Column="0"
-               HorizontalAlignment="Right" VerticalAlignment="Center"
-               Content="{x:Static p:Strings.SensorRadius}">
-        </Label>
-        <TextBox Grid.Row="0" Grid.Column="1"
-                 Width="100" Height="20"
-                 Name="SensorRadiusBox"
-                 PreviewTextInput="NumberPreviewTextInput">
-        </TextBox>
-
-        <Label Grid.Row="1" Grid.Column="0"
-               HorizontalAlignment="Right" VerticalAlignment="Center"
-               Content="{x:Static p:Strings.BatteryCapacity}">
-        </Label>
-        <TextBox Grid.Row="1" Grid.Column="1"
-                 Width="100" Height="20"
-                 Name="BatteryCapacityBox"
-                 PreviewTextInput="NumberPreviewTextInput">
-        </TextBox>
-    </Grid>
+    
 </UserControl>

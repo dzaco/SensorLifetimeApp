@@ -22,7 +22,7 @@ namespace SensorLifetimeApp.Views
     /// </summary>
     public partial class SettingSensorView : UserControl
     {
-        public ParamSetup ParamSetup = ParamSetup.GetInstance();
+        
         public SettingSensorView()
         {
             
@@ -31,8 +31,7 @@ namespace SensorLifetimeApp.Views
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            this.SensorRadiusBox.Text = ParamSetup.RadiusDefault.ToString();
-            BatteryCapacityBox.Text = ParamSetup.BatteryCapacity.ToString();
+            
         }
 
         private void NumberPreviewTextInput(object sender, TextCompositionEventArgs e)

@@ -9,25 +9,25 @@ namespace SensorLifetimeApp.Commons
     public class ParamSetup // Singleton
     {
         #region Parameters
-        public float MinimalCoverage { get { return this._minimalCoverage; } }
+        public float MinimalCoverage { get { return this._minimalCoverage; } set { this._minimalCoverage = value; } }
         private float _minimalCoverage;
-        public int PoiCount { get { return this._poiCount; } }
+        public int PoiCount { get { return this._poiCount; } set { this._poiCount = value; } }
         private int _poiCount;
-        public int SensorCount { get { return this._sensorCount; } }
+        public int SensorCount { get { return this._sensorCount; } set { this._sensorCount = value; } }
         private int _sensorCount;
-        public int BatteryCapacity { get { return this._batteryCapacity; } }
+        public int BatteryCapacity { get { return this._batteryCapacity; } set { this._batteryCapacity = value; } }
         private int _batteryCapacity;
         ///<summary>Parameter how many battery will go down during one iteration </summary>
-        public int BatteryConsumption { get { return this._batteryConsumption; } }
+        public int BatteryConsumption { get { return this._batteryConsumption; } set { this._batteryConsumption = value; } }
         private int _batteryConsumption;
-        public int AreaWidth { get { return this._areaWidth; } }
+        public int AreaWidth { get { return this._areaWidth; } set { this._areaWidth = value; } }
         private int _areaWidth; 
-        public int RadiusDefault { get { return this._radiusDefault; } }
+        public int RadiusDefault { get { return this._radiusDefault; } set { this._radiusDefault = value; } }
         private int _radiusDefault;
-        public double ActiveSensorProbability { get { return this._activeSensorProbability; } }
+        public double ActiveSensorProbability { get { return this._activeSensorProbability; } set { this._activeSensorProbability = value; } }
         private double _activeSensorProbability;
 
-        public double Scale { get { return this._scale; } }
+        public double Scale { get { return this._scale; } set { this._scale = value; } }
         private double _scale;
         #endregion
 
@@ -35,8 +35,8 @@ namespace SensorLifetimeApp.Commons
         private ParamSetup() // Set default values
         {
             this._minimalCoverage = 0.9f;
-            this._poiCount = 36;
-            this._sensorCount = 5;
+            this._poiCount = 121;
+            this._sensorCount = 10;
             this._batteryCapacity = 20;
             this._batteryConsumption = 1;
             this._areaWidth = 100;

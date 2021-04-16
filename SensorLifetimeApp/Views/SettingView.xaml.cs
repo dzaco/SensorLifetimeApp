@@ -1,7 +1,9 @@
-﻿using System;
+﻿using SensorLifetimeApp.Commons;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,9 +22,86 @@ namespace SensorLifetimeApp.Views
     /// </summary>
     public partial class SettingView : UserControl
     {
+        public ParamSetup ParamSetup = ParamSetup.GetInstance();
         public SettingView()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (ParamSetup.PoiCount == 121)
+                POI121Btn.IsChecked = true;
+            else if (ParamSetup.PoiCount == 441)
+                POI441Btn.IsChecked = true;
+            else
+                POI36Btn.IsChecked = true;
+
+            SensorCountBox.Text = ParamSetup.SensorCount.ToString();
+            SensorRadiusBox.Text = ParamSetup.RadiusDefault.ToString();
+            BatteryCapacityBox.Text = ParamSetup.BatteryCapacity.ToString();
+            ProbabilityBox.Text = ParamSetup.ActiveSensorProbability.ToString();
+        }
+
+        private void NumberPreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+        private void ProbabilityNumberPreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            bool isMatch = false;
+            if (e.Text.StartsWith("0."))
+            {
+                var chars = e.Text.AsEnumerable();
+                for(int i = 2; i < chars.Count(); i++)
+                {
+                    if(!Char.IsDigit(chars.ElementAt(i)))
+                    {
+                        isMatch = false;
+                        break;
+                    }
+                }
+                isMatch = true;
+            }
+            else if (e.Text.StartsWith("1"))
+            {
+                if (e.Text.Length == 1)
+                {
+                    isMatch = true;
+                }
+                else
+                {
+                    if (e.Text == "1.0") isMatch = true;
+                    else isMatch = false;
+                }
+            }
+            else
+                isMatch = false;
+
+            e.Handled = isMatch;
+        }
+
+        public void Save()
+        {
+            if (POI121Btn.IsChecked == true)
+                ParamSetup.PoiCount = 121;
+            else if (POI441Btn.IsChecked == true)
+                ParamSetup.PoiCount = 441;
+            else
+                ParamSetup.PoiCount = 36;
+
+            ParamSetup.SensorCount = Int32.Parse(SensorCountBox.Text);
+            ParamSetup.RadiusDefault = Int32.Parse(SensorRadiusBox.Text);
+            ParamSetup.BatteryCapacity = Int32.Parse(BatteryCapacityBox.Text);
+            ParamSetup.ActiveSensorProbability = Double.Parse( ProbabilityBox.Text );
+        }
+
+        private void Rebuild_click(object sender, RoutedEventArgs e)
+        {
+            Save();
+            var parent = Application.Current.MainWindow as MainWindow;
+            parent.Refresh();
         }
     }
 }

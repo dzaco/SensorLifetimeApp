@@ -6,13 +6,108 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SensorLifetimeApp.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="300">
+             d:DesignHeight="450" d:DesignWidth="300"
+             Loaded="UserControl_Loaded">
     <StackPanel Orientation="Vertical" Background="GhostWhite">
-        <local:SettingPoiView></local:SettingPoiView>
-        <local:SettingSensorView></local:SettingSensorView>
-        <Button Width="100" Height="20"
+
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <RadioButton Grid.Row="1" Grid.Column="0" 
+                     Name="POI36Btn"
+            VerticalAlignment="Center" HorizontalAlignment="Center">
+                POI 36
+            </RadioButton>
+            <RadioButton Grid.Row="1" Grid.Column="1" 
+                     Name="POI121Btn"
+            VerticalAlignment="Center" HorizontalAlignment="Center">
+                POI 121
+            </RadioButton>
+            <RadioButton Grid.Row="1" Grid.Column="2" 
+                     Name="POI441Btn"
+            VerticalAlignment="Center" HorizontalAlignment="Center">
+                POI 441
+            </RadioButton>
+            <!--<Button Grid.Row="2" Grid.Column="1" Width="100" Height="20"
                 HorizontalAlignment="Center"
                 Name="ShowPoiButton"
+                Content="{x:Static p:Strings.ShowPOI}">
+        </Button>-->
+        </Grid>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+            <Label Grid.Row="0" Grid.Column="0"
+               HorizontalAlignment="Right" VerticalAlignment="Center"
+               Content="{x:Static p:Strings.SensorCount}">
+            </Label>
+            <TextBox Grid.Row="0" Grid.Column="1"
+                 Width="100" Height="20"
+                 Name="SensorCountBox"
+                 PreviewTextInput="NumberPreviewTextInput">
+            </TextBox>
+
+            <Label Grid.Row="1" Grid.Column="0"
+               HorizontalAlignment="Right" VerticalAlignment="Center"
+               Content="{x:Static p:Strings.SensorRadius}">
+            </Label>
+            <TextBox Grid.Row="1" Grid.Column="1"
+                 Width="100" Height="20"
+                 Name="SensorRadiusBox"
+                 PreviewTextInput="NumberPreviewTextInput">
+            </TextBox>
+
+            <Label Grid.Row="2" Grid.Column="0"
+               HorizontalAlignment="Right" VerticalAlignment="Center"
+                Content="{x:Static p:Strings.BatteryCapacity}">
+            </Label>
+            <TextBox Grid.Row="2" Grid.Column="1"
+                 Width="100" Height="20"
+                 Name="BatteryCapacityBox"
+                 PreviewTextInput="NumberPreviewTextInput">
+            </TextBox>
+            
+            <Label Grid.Row="3" Grid.Column="0"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center">
+                <Label.Content>
+                    <AccessText TextWrapping="Wrap" 
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Text="{x:Static p:Strings.ActiveSensorProbability}"/>
+                </Label.Content>
+            </Label>
+            <TextBox Grid.Row="3" Grid.Column="1"
+                 Width="100" Height="20"
+                 Name="ProbabilityBox">
+            </TextBox>
+        </Grid>
+        
+        <Button Width="100" Height="20"
+                HorizontalAlignment="Center"
+                Name="RebuildeBtn"
+                Click="Rebuild_click"
                 Content="{x:Static p:Strings.Rebuild}">
         </Button>
     </StackPanel>

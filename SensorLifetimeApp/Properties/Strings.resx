@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ActiveSensorProbability" xml:space="preserve">
+    <value>Probability of Sensor Activation</value>
+  </data>
   <data name="Battery" xml:space="preserve">
     <value>Battery</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="SaveState" xml:space="preserve">
     <value>Save State</value>
+  </data>
+  <data name="SensorCount" xml:space="preserve">
+    <value>Sensor Count</value>
   </data>
   <data name="SensorRadius" xml:space="preserve">
     <value>Sensor Radius</value>

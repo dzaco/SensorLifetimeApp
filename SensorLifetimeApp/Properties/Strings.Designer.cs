@@ -61,6 +61,15 @@ namespace SensorLifetimeApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Probability of Sensor Activation.
+        /// </summary>
+        public static string ActiveSensorProbability {
+            get {
+                return ResourceManager.GetString("ActiveSensorProbability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Battery.
         /// </summary>
         public static string Battery {
@@ -147,6 +156,15 @@ namespace SensorLifetimeApp.Properties {
         public static string SaveState {
             get {
                 return ResourceManager.GetString("SaveState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sensor Count.
+        /// </summary>
+        public static string SensorCount {
+            get {
+                return ResourceManager.GetString("SensorCount", resourceCulture);
             }
         }
         

@@ -30,7 +30,7 @@ namespace SensorLifetimeApp
             // TODO if refresh - init area from prev window
         }
 
-        private void Refresh()
+        public void Refresh()
         {
             MainWindow newWindow = new MainWindow();
             Application.Current.MainWindow = newWindow;
@@ -42,7 +42,7 @@ namespace SensorLifetimeApp
 
         public void LoadStateClick(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         public void SaveStateClick(object sender, RoutedEventArgs e)
