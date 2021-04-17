@@ -1,5 +1,6 @@
 ﻿using SensorLifetimeApp.Commons;
 using SensorLifetimeApp.Commons.Interfaces;
+using SensorLifetimeApp.Settings.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace SensorLifetimeApp.Models
         public Point Point { get; protected set; }
         public Area Parent { get; protected set; }
 
-        public ParamSetup ParamSetup => ParamSetup.GetInstance();
+        public ApplicationSettings Settings => ApplicationSettings.GetInstance();
         #endregion
         #region Constructor
         protected AreaComponent() { }

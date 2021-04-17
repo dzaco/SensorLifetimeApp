@@ -57,8 +57,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Commons\FileManagerTests.cs" />
-    <Compile Include="Commons\ParamSetupTests.cs" />
-    <Compile Include="Models\AreaTests.cs" />
     <Compile Include="Models\POITests.cs" />
     <Compile Include="Models\SelectionTests.cs" />
     <Compile Include="Models\SensorCollectionTests.cs" />

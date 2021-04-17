@@ -1,5 +1,6 @@
 ﻿using SensorLifetimeApp.Commons;
 using SensorLifetimeApp.Enums;
+using SensorLifetimeApp.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,10 +12,12 @@ using System.Xml.Serialization;
 
 namespace SensorLifetimeApp.Settings.Model
 {
-    [XmlRoot("Settings")]
+    [XmlType("ApplicationSettings")]
+    [DataContract(Name = nameof(ApplicationSettings))]
     public class ApplicationSettings
     {
 
+        #region Properties
         [XmlIgnore]
         public static readonly Dictionary<string, string> LanguageDictionary = new Dictionary<string, string>
         {
@@ -26,40 +29,53 @@ namespace SensorLifetimeApp.Settings.Model
             return (String.IsNullOrEmpty(LanguageDictionary.FirstOrDefault(x => x.Key == selectedLanguageCode).Key)) ? false : true;
         }
 
+        [XmlElement(elementName: nameof(SensorFilePath))]
+        [DataMember]
+        public string SensorFilePath { get; set; }
+
         [XmlElement(elementName: nameof(Language))]
         [DataMember]
-        private string _lang;
-
-        [XmlIgnore]
-        public string Language
-        {
-            get
-            {
-                if (String.IsNullOrEmpty(_lang))
-                    return Enums.Language.EN;
-                else
-                    return _lang;
-            }
-            set
-            {
-                if (IsLanguageInDictionary(value))
-                    this._lang = value;
-                else
-                    this._lang = Enums.Language.EN;
-
-                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(this.Language);
-            }
-        }
+        public string Language { get; set; }
 
         [XmlElement]
         [DataMember]
         public ParamSettings ParamSettings { get; set; }
+        
+        [XmlIgnore]
+        public Area Area { get; internal set; }
+        #endregion
 
-        public ApplicationSettings()
+        #region Singleton
+        private static ApplicationSettings _instance;
+        private static readonly object _lock = new object();
+
+        public static ApplicationSettings GetInstance()
+        {
+            if (_instance == null)
+            {
+                lock (_lock)
+                {
+                    if (_instance == null)
+                    {
+                        if (FileManager.Exists(Names.ConfigFile))
+                        {
+                            var path = FileManager.GetFullPath(Names.ConfigFile);
+                            _instance = ApplicationSettings.FromFile(path);
+                        }
+                        else
+                            _instance = new ApplicationSettings();
+                    }
+                }
+            }
+            return _instance;
+        }
+        private ApplicationSettings()
         {
             this.Language = Enums.Language.EN;
+            this.SensorFilePath = FileManager.GetFullPath(Names.SensorCollectionXml);
             this.ParamSettings = new ParamSettings();
-        }
+        } 
+        #endregion
 
         public void SaveToStorage()
         {
@@ -69,6 +85,10 @@ namespace SensorLifetimeApp.Settings.Model
         public static ApplicationSettings FromStream(Stream stream)
         {
             return SerializationHelpers.XmlDeserialize<ApplicationSettings>(stream);
+        }
+        public static ApplicationSettings FromFile(string path)
+        {
+            return SerializationHelpers.XmlDeserializeFromFile<ApplicationSettings>(path);
         }
 
     }

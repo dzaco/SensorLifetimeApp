@@ -34,6 +34,7 @@ namespace SensorLifetimeApp.Commons
 
         public static Stream XmlSerialize(object source)
         {
+            var type = source.GetType();
             var serializer = new XmlSerializer(source.GetType());
             var stream = new MemoryStream();
             serializer.Serialize(stream, source);

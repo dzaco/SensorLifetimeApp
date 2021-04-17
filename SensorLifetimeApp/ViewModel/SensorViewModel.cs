@@ -1,6 +1,7 @@
 ﻿using SensorLifetimeApp.Commons;
 using SensorLifetimeApp.Commons.Interfaces;
 using SensorLifetimeApp.Models;
+using SensorLifetimeApp.Settings.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +16,12 @@ namespace SensorLifetimeApp.ViewModel
     public class SensorViewModel : ViewModelBase, IDrawable
     {
         private Sensor Sensor { get; }
-        private ParamSetup param { get; }
+        private ApplicationSettings Settings { get; }
 
-        public SensorViewModel(Sensor sensor, ParamSetup param)
+        public SensorViewModel(Sensor sensor, ApplicationSettings settings)
         {
             this.Sensor = sensor;
-            this.param = param;
+            this.Settings = settings;
         }
 
         public List<Shape> GetShapes()
@@ -41,12 +42,12 @@ namespace SensorLifetimeApp.ViewModel
                 circle.Stroke = brush;
             }
             // * 2 bo with srednica czyli to 2*r
-            circle.Width = Sensor.Radius*2 * param.Scale; 
-            circle.Height = Sensor.Radius*2 * param.Scale;
+            circle.Width = Sensor.Radius*2 * Settings.ParamSettings.Scale; 
+            circle.Height = Sensor.Radius*2 * Settings.ParamSettings.Scale;
 
-            double circleLeft = (Sensor.Point.X * param.Scale) - (circle.Width / 2);
+            double circleLeft = (Sensor.Point.X * Settings.ParamSettings.Scale) - (circle.Width / 2);
 
-            double circleTop = (Sensor.Point.Y * param.Scale) - (circle.Height / 2);
+            double circleTop = (Sensor.Point.Y * Settings.ParamSettings.Scale) - (circle.Height / 2);
 
             circle.Margin = new Thickness(circleLeft, circleTop, 0, 0);
             list.Add(circle);
@@ -61,9 +62,9 @@ namespace SensorLifetimeApp.ViewModel
             center.Width = 5;
             center.Height = 5;
 
-            double left = (Sensor.Point.X * param.Scale) - (center.Width / 2);
+            double left = (Sensor.Point.X * Settings.ParamSettings.Scale) - (center.Width / 2);
 
-            double top = (Sensor.Point.Y * param.Scale) - (center.Height / 2);
+            double top = (Sensor.Point.Y * Settings.ParamSettings.Scale) - (center.Height / 2);
 
             center.Margin = new Thickness(left, top, 0, 0);
             list.Add(center);

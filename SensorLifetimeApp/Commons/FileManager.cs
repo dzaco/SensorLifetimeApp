@@ -13,9 +13,9 @@ namespace SensorLifetimeApp.Commons
 {
     public class FileManager
     {
-        private static string ProjectPath = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory())));
-        private static string ResourcePath = Path.Combine(ProjectPath, "SensorLifetimeApp", "Resources");
-        private static string ConfigFile = Path.Combine(ResourcePath, "config.xml");
+        public static string ProjectPath = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory())));
+        public static string ResourcePath = Path.Combine(ProjectPath, "SensorLifetimeApp", "Resources");
+        public static string ConfigFile = Path.Combine(ResourcePath, "config.xml");
 
         public static string CreateFileIfNotExists(string path)
         {
@@ -107,8 +107,8 @@ namespace SensorLifetimeApp.Commons
             if (!Exists(ConfigFile))
                 CreateFileIfNotExists(ConfigFile);
 
-            var setting = new ApplicationSettings();
-            setting.SaveToStorage();
+            //var setting = ApplicationSettings.GetInstance();
+            //setting.SaveToStorage();
 
             return ReadStream(ConfigFile);
         }

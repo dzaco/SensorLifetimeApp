@@ -1,4 +1,5 @@
 ﻿using SensorLifetimeApp.Commons;
+using SensorLifetimeApp.Settings.Model;
 using SensorLifetimeApp.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -32,10 +33,10 @@ namespace SensorLifetimeApp.Views
 
         private void AreaRectangleLoaded(object sender, RoutedEventArgs e)
         {
-            ParamSetup param = ParamSetup.GetInstance();
+            ApplicationSettings settings = ApplicationSettings.GetInstance();
             var areaRectangle = new Rectangle();
-            areaRectangle.Width = 100 * param.Scale + 5;
-            areaRectangle.Height= 100 * param.Scale + 5;
+            areaRectangle.Width = 100 * settings.ParamSettings.Scale + 5;
+            areaRectangle.Height= 100 * settings.ParamSettings.Scale + 5;
             areaRectangle.Stroke = Brushes.Black;
             areaRectangle.StrokeThickness = 1;
 

@@ -150,6 +150,9 @@
   <data name="SaveState" xml:space="preserve">
     <value>Save State</value>
   </data>
+  <data name="SaveUnderPath" xml:space="preserve">
+    <value>Save Under the Path</value>
+  </data>
   <data name="SensorCount" xml:space="preserve">
     <value>Sensor Count</value>
   </data>

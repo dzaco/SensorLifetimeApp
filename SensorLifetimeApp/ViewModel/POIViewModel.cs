@@ -4,18 +4,19 @@ using System.Windows;
 using System.Windows.Shapes;
 using SensorLifetimeApp.Commons.Interfaces;
 using System.Collections.Generic;
+using SensorLifetimeApp.Settings.Model;
 
 namespace SensorLifetimeApp.ViewModel
 {
     public class POIViewModel : ViewModelBase, IDrawable
     {
         private POI POI { get; }
-        private ParamSetup param { get; }
+        private ApplicationSettings Settings { get; }
         private bool IsCovered { get; }
-        public POIViewModel(POI poi, ParamSetup paramSetup, bool isCovered)
+        public POIViewModel(POI poi, ApplicationSettings settings, bool isCovered)
         {
             this.POI = poi;
-            this.param = paramSetup;
+            this.Settings = settings;
             this.IsCovered = isCovered;
         }
 
@@ -33,10 +34,10 @@ namespace SensorLifetimeApp.ViewModel
             shape.Height = 5;
 
             double left = POI.Point.X;
-            left *= param.Scale;
+            left *= Settings.ParamSettings.Scale;
 
             double top = POI.Point.Y;
-            top *= param.Scale;
+            top *= Settings.ParamSettings.Scale;
 
             shape.Margin = new Thickness(left, top, 0, 0);
             list.Add(shape);

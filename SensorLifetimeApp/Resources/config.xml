@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Config>
-  <Language>pl</Language>
-</Config>
+<?xml version="1.0"?>
+<ApplicationSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SensorFilePath>C:\Users\Dzaco\Desktop\Private\project\SensorLifetimeApp\SensorLifetimeApp\Resources\SensorCollection.xml</SensorFilePath>
+  <Language>en</Language>
+  <ParamSettings>
+    <MinimalCoverage>0.9</MinimalCoverage>
+    <PoiCount>36</PoiCount>
+    <SensorCount>5</SensorCount>
+    <BatteryCapacity>20</BatteryCapacity>
+    <BatteryConsumption>1</BatteryConsumption>
+    <AreaWidth>100</AreaWidth>
+    <Radius>5</Radius>
+    <ActiveSensorProbability>0.5</ActiveSensorProbability>
+    <Scale>5</Scale>
+  </ParamSettings>
+</ApplicationSettings>

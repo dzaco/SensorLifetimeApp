@@ -1,5 +1,6 @@
 ﻿using SensorLifetimeApp.Commons;
 using SensorLifetimeApp.Enums;
+using SensorLifetimeApp.Settings.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace SensorLifetimeApp.Models
         [XmlAttribute(attributeName: "capacity")]
         public int Capacity { get; set; }
         
-        private static readonly ParamSetup ParamSetup = ParamSetup.GetInstance();
+        private static ApplicationSettings Settings => ApplicationSettings.GetInstance();
 
         public Battery(Power p, int capacity)
         {
@@ -30,7 +31,7 @@ namespace SensorLifetimeApp.Models
             //_capacity = capacity;
             Capacity = capacity;
         }
-        public Battery() : this(Power.Off, ParamSetup.BatteryCapacity) { }
+        public Battery() : this(Power.Off, Settings.ParamSettings.BatteryCapacity) { }
 
         /// <summary>
         /// Use battery. If is Off - turn it On and consume energy.
@@ -41,7 +42,7 @@ namespace SensorLifetimeApp.Models
             if (Capacity > 0 && Power == Power.Off)
             {
                 Power = Power.On;
-                Capacity -= ParamSetup.BatteryConsumption;
+                Capacity -= Settings.ParamSettings.BatteryConsumption;
                 return Capacity >= 0;
             }
             else

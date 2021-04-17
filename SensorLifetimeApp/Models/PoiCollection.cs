@@ -1,4 +1,5 @@
 ﻿using SensorLifetimeApp.Commons;
+using SensorLifetimeApp.Settings.Model;
 using SensorLifetimeApp.ViewModel;
 using System;
 using System.Collections;
@@ -16,7 +17,7 @@ namespace SensorLifetimeApp.Models
         public List<POI> List { get; }
         public Area Parent { get; }
 
-        private ParamSetup ParamSetup = ParamSetup.GetInstance();
+        private ApplicationSettings Settings = ApplicationSettings.GetInstance();
         public PoiCollection(Area parent)
         {
             List = InitPoiCollection(parent);
@@ -26,9 +27,9 @@ namespace SensorLifetimeApp.Models
         private List<POI> InitPoiCollection(Area parent)
         {
             var poiCollection = new List<POI>();
-            var poiCount = ParamSetup.PoiCount;
+            var poiCount = Settings.ParamSettings.PoiCount;
             var poiSqrt = Math.Round(Math.Sqrt(poiCount)) - 1; 
-            var distanceBetweenPOI = ParamSetup.AreaWidth / poiSqrt;
+            var distanceBetweenPOI = Settings.ParamSettings.AreaWidth / poiSqrt;
 
             double x = 0, y = 0;
             int id = 1;

@@ -19,8 +19,8 @@ namespace SensorLifetimeApp.Models
         private Sensor() { }
         public Sensor(int id, Point point, Area area) : base(id, point, area)
         {
-            Radius = ParamSetup.RadiusDefault;
-            Battery = new Battery(Enums.Power.Off, ParamSetup.BatteryCapacity);
+            Radius = Settings.ParamSettings.Radius;
+            Battery = new Battery(Enums.Power.Off, Settings.ParamSettings.BatteryCapacity);
             CoveredPOIs = new List<POI>();
         }
         public Sensor(int id, Point point, Area area, int radius, Battery battery) : base(id,point,area)

@@ -160,6 +160,15 @@ namespace SensorLifetimeApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save Under the Path.
+        /// </summary>
+        public static string SaveUnderPath {
+            get {
+                return ResourceManager.GetString("SaveUnderPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sensor Count.
         /// </summary>
         public static string SensorCount {

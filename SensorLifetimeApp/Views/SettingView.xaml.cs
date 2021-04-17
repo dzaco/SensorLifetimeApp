@@ -1,4 +1,5 @@
 ﻿using SensorLifetimeApp.Commons;
+using SensorLifetimeApp.Settings.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace SensorLifetimeApp.Views
     /// </summary>
     public partial class SettingView : UserControl
     {
-        public ParamSetup ParamSetup = ParamSetup.GetInstance();
+        public ApplicationSettings Settings = ApplicationSettings.GetInstance();
         public SettingView()
         {
             InitializeComponent();
@@ -30,17 +31,17 @@ namespace SensorLifetimeApp.Views
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            if (ParamSetup.PoiCount == 121)
+            if (Settings.ParamSettings.PoiCount == 121)
                 POI121Btn.IsChecked = true;
-            else if (ParamSetup.PoiCount == 441)
+            else if (Settings.ParamSettings.PoiCount == 441)
                 POI441Btn.IsChecked = true;
             else
                 POI36Btn.IsChecked = true;
 
-            SensorCountBox.Text = ParamSetup.SensorCount.ToString();
-            SensorRadiusBox.Text = ParamSetup.RadiusDefault.ToString();
-            BatteryCapacityBox.Text = ParamSetup.BatteryCapacity.ToString();
-            ProbabilityBox.Text = ParamSetup.ActiveSensorProbability.ToString();
+            SensorCountBox.Text = Settings.ParamSettings.SensorCount.ToString();
+            SensorRadiusBox.Text = Settings.ParamSettings.Radius.ToString();
+            BatteryCapacityBox.Text = Settings.ParamSettings.BatteryCapacity.ToString();
+            ProbabilityBox.Text = Settings.ParamSettings.ActiveSensorProbability.ToString();
         }
 
         private void NumberPreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -85,16 +86,16 @@ namespace SensorLifetimeApp.Views
         public void Save()
         {
             if (POI121Btn.IsChecked == true)
-                ParamSetup.PoiCount = 121;
+                Settings.ParamSettings.PoiCount = 121;
             else if (POI441Btn.IsChecked == true)
-                ParamSetup.PoiCount = 441;
+                Settings.ParamSettings.PoiCount = 441;
             else
-                ParamSetup.PoiCount = 36;
+                Settings.ParamSettings.PoiCount = 36;
 
-            ParamSetup.SensorCount = Int32.Parse(SensorCountBox.Text);
-            ParamSetup.RadiusDefault = Int32.Parse(SensorRadiusBox.Text);
-            ParamSetup.BatteryCapacity = Int32.Parse(BatteryCapacityBox.Text);
-            ParamSetup.ActiveSensorProbability = Double.Parse( ProbabilityBox.Text );
+            Settings.ParamSettings.SensorCount = Int32.Parse(SensorCountBox.Text);
+            Settings.ParamSettings.Radius = Int32.Parse(SensorRadiusBox.Text);
+            Settings.ParamSettings.BatteryCapacity = Int32.Parse(BatteryCapacityBox.Text);
+            Settings.ParamSettings.ActiveSensorProbability = Double.Parse( ProbabilityBox.Text );
         }
 
         private void Rebuild_click(object sender, RoutedEventArgs e)

@@ -17,7 +17,7 @@ namespace SensorLifetimeApp.Settings.Model
         
         [XmlElement]
         [DataMember]
-        public decimal PoiCount { get; set; }
+        public int PoiCount { get; set; }
 
         [XmlElement]
         [DataMember]
@@ -25,24 +25,28 @@ namespace SensorLifetimeApp.Settings.Model
 
         [XmlElement]
         [DataMember]
-        public decimal BatteryCapacity { get; set; }
+        public int BatteryCapacity { get; set; }
 
         [XmlElement]
         [DataMember]
-        public decimal BatteryConsumption { get; set; }
+        public int BatteryConsumption { get; set; }
 
         [XmlElement]
         [DataMember]
-        public decimal AreaWidth { get; set; }
+        public int AreaWidth { get; set; }
 
         [XmlElement]
         [DataMember]
-        public decimal RadiusDefault { get; set; }
+        public int Radius { get; set; }
 
         [XmlElement]
         [DataMember]
-        public decimal ActiveSensorProbability { get; set; }
-        
+        public double ActiveSensorProbability { get; set; }
+
+        [XmlElement]
+        [DataMember]
+        public double Scale { get; set; }
+
 
 
         public ParamSettings() // Set default values
@@ -53,8 +57,9 @@ namespace SensorLifetimeApp.Settings.Model
             this.BatteryCapacity = 20;
             this.BatteryConsumption = 1;
             this.AreaWidth = 100;
-            this.RadiusDefault = 5;
-            this.ActiveSensorProbability = 0.5m;
+            this.Radius = 5;
+            this.ActiveSensorProbability = 0.5;
+            this.Scale = 5;
         }
     }
 }

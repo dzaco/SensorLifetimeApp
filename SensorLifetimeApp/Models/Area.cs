@@ -1,4 +1,5 @@
 ﻿using SensorLifetimeApp.Commons;
+using SensorLifetimeApp.Settings.Model;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -7,19 +8,30 @@ namespace SensorLifetimeApp.Models
 {
     public class Area
     {
-        private ParamSetup ParamSetup { get; }
+        private ApplicationSettings Settings { get; }
         private int Width { get; }
         public PoiCollection PoiCollection { get; }
-        public SensorCollection SensorCollection { get; }
+        public SensorCollection SensorCollection { get; set; }
 
         public Area()
         {
-            this.ParamSetup = ParamSetup.GetInstance();
-            this.Width = ParamSetup.AreaWidth;
+            this.Settings = ApplicationSettings.GetInstance();
+            this.Width = Settings.ParamSettings.AreaWidth;
 
-            PoiCollection = new PoiCollection(this);
-            SensorCollection = new SensorCollection(Enums.SensorActivationType.Random, ParamSetup);
+            if(Settings.Area == null)
+            {
+                PoiCollection = new PoiCollection(this);
+                SensorCollection = new SensorCollection(Enums.SensorActivationType.Random, Settings);
+                Settings.Area = this;
+            }
+            else
+            {
+                PoiCollection = Settings.Area.PoiCollection;
+                SensorCollection = Settings.Area.SensorCollection;
+                Settings.Area = this;
+            }
 
+            
         }
         public Selection Selection { get { return Selection.GetInstance(); } }
 
