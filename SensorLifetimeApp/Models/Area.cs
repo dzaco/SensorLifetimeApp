@@ -23,9 +23,32 @@ namespace SensorLifetimeApp.Models
         }
         public Selection Selection { get { return Selection.GetInstance(); } }
 
-        internal List<Sensor> GetSensorsForPOI(POI poi)
+        public List<POI> GetCoveredPois()
         {
-            return new List<Sensor>();
+            List<POI> pois = new List<POI>();
+            foreach (POI poi in PoiCollection)
+            {
+                foreach (Sensor sensor in SensorCollection)
+                {
+                    if(sensor.IsInRange(poi))
+                    {
+                        pois.Add(poi);
+                        break;
+                    }
+                }
+            }
+            return pois;            
+        }
+        public bool IsCovered(POI poi)
+        {
+            foreach(Sensor sensor in SensorCollection)
+            {
+                if(sensor.Battery.IsActive && sensor.IsInRange(poi))
+                {
+                     return true;
+                }
+            }
+            return false;
         }
     }
 }

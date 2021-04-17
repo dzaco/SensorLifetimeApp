@@ -40,8 +40,9 @@ namespace SensorLifetimeApp.ViewModel
                 circle.Fill = brush;
                 circle.Stroke = brush;
             }
-            circle.Width = Sensor.Radius * param.Scale;
-            circle.Height = Sensor.Radius * param.Scale;
+            // * 2 bo with srednica czyli to 2*r
+            circle.Width = Sensor.Radius*2 * param.Scale; 
+            circle.Height = Sensor.Radius*2 * param.Scale;
 
             double circleLeft = (Sensor.Point.X * param.Scale) - (circle.Width / 2);
 
@@ -51,7 +52,7 @@ namespace SensorLifetimeApp.ViewModel
             list.Add(circle);
 
 
-            var center = new Rectangle();
+            var center = new Ellipse();
             if (Sensor.Battery.IsActive)
                 center.Fill = System.Windows.Media.Brushes.Green;
             else

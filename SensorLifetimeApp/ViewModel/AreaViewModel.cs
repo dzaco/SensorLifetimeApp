@@ -24,7 +24,7 @@ namespace SensorLifetimeApp.ViewModel
 
             foreach (POI poi in area.PoiCollection)
             {
-                this.PoiViewModelCollection.Add(new POIViewModel(poi, ParamSetup));
+                this.PoiViewModelCollection.Add(new POIViewModel(poi, ParamSetup, Area.IsCovered(poi)));
             }
 
             foreach (Sensor sensor in area.SensorCollection)

@@ -11,10 +11,12 @@ namespace SensorLifetimeApp.ViewModel
     {
         private POI POI { get; }
         private ParamSetup param { get; }
-        public POIViewModel(POI poi, ParamSetup paramSetup)
+        private bool IsCovered { get; }
+        public POIViewModel(POI poi, ParamSetup paramSetup, bool isCovered)
         {
             this.POI = poi;
             this.param = paramSetup;
+            this.IsCovered = isCovered;
         }
 
         public List<Shape> GetShapes()
@@ -22,7 +24,11 @@ namespace SensorLifetimeApp.ViewModel
             List<Shape> list = new List<Shape>();
             var shape = new Rectangle();
             shape.Stroke = System.Windows.Media.Brushes.Black;
-            shape.Fill = System.Windows.Media.Brushes.Transparent;
+            if (IsCovered)
+                shape.Fill = System.Windows.Media.Brushes.Green;
+            else
+                shape.Fill = System.Windows.Media.Brushes.Transparent;
+
             shape.Width = 5;
             shape.Height = 5;
 
