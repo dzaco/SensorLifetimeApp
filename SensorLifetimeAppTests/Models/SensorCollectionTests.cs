@@ -28,6 +28,11 @@ namespace SensorLifetimeApp.Models.Tests
             Sensor s = new Sensor(100, 0, 0, null);
             SensorCollection sc = new SensorCollection();
             sc.List.Add(s);
+            s = new Sensor(101, 0, 0, null);
+            sc.List.Add(s);
+            s = new Sensor(102, 0, 0, null);
+            sc.List.Add(s);
+
             sc.WriteToFile(Names.SensorCollectionXml);
 
             SensorCollection collection = SensorCollection.ReadFromFile(FileManager.GetFullPath(Names.SensorCollectionXml));

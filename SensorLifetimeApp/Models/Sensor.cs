@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Xml;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace SensorLifetimeApp.Models
@@ -32,6 +33,23 @@ namespace SensorLifetimeApp.Models
 
         public Sensor(int id, int x, int y, Area area) : this(id, new Point(x,y), area)
         { }
+
+        public Sensor(XElement sensorNode)
+        {
+            this.ID = Int16.Parse(sensorNode.Attribute("ID").Value);
+            
+            var xPoint = sensorNode.Element("Point");
+            int x = Int16.Parse( xPoint.Attribute("x").Value);
+            int y = Int16.Parse( xPoint.Attribute("y").Value);
+            this.Point = new Point(x,y);
+
+            this.Radius = Int16.Parse( sensorNode.Element("Radius").Value );
+            var xBattery = sensorNode.Element("Battery");
+            var xPower = xBattery.Attribute("power").Value;
+            var xCapacity = Int16.Parse( xBattery.Attribute("capacity").Value );
+
+            this.Battery = new Battery(xPower == "On" ? Enums.Power.On : Enums.Power.Off, xCapacity);
+        }
         #endregion
 
         public bool IsInRange(POI poi)

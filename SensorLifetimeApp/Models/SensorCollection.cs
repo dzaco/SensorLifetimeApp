@@ -12,22 +12,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Xml;
+using System.Xml.Linq;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
 namespace SensorLifetimeApp.Models
 {
-    [XmlType("SensorCollection")]
-    [DataContract(Name = nameof(SensorCollection))]
-    public class SensorCollection
+    [XmlRoot(elementName: nameof(SensorCollection))]
+    public class SensorCollection : IXmlSerializable
     {
         [XmlIgnore]
         private ApplicationSettings Settings;
 
-        [XmlElement(elementName:"Sensors")]
-        [DataMember]
+        [XmlArray]
+        [XmlArrayItem]
         public List<Sensor> List { get; private set; }
-        
+
         [XmlIgnore]
         public Area Parent { get; set; }
 
@@ -47,7 +47,6 @@ namespace SensorLifetimeApp.Models
 
             //this.WriteToFile(Names.SensorCollectionXml);
         }
-
         public SensorCollection(SensorCollection sensorCollection)
         {
             this.Settings = sensorCollection.Settings;
@@ -80,44 +79,60 @@ namespace SensorLifetimeApp.Models
             return new Sensor(id, new Point(x,y), Parent, Settings.ParamSettings.Radius, new Battery(power, Settings.ParamSettings.BatteryCapacity) );
 
         }
+
         public static SensorCollection ReadFromFile(string path)
         {
             path = FileManager.GetFullPath(path);
-            return SerializationHelpers.XmlDeserializeFromFile<SensorCollection>(path);
-        }
+            var collection = new SensorCollection();
 
+            using(var reader = XmlReader.Create(path))
+            {
+                collection.ReadXml(reader);
+            }
+            return collection;
+        }
         public void WriteToFile(string path)
         {
-            path = FileManager.GetFullPath(path);
-            var stream = SerializationHelpers.XmlSerialize(this);
-            FileManager.SaveStream(stream as MemoryStream, path);
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.OmitXmlDeclaration = true;
+            settings.ConformanceLevel = ConformanceLevel.Auto;
+            settings.CloseOutput = false;
+            settings.Indent = true;
+
+            var writer = XmlWriter.Create(FileManager.GetFullPath(path), settings);
+            this.WriteXml(writer);
+            writer.Close();
+        }
+        public XmlSchema GetSchema()
+        {
+            return null;
         }
 
-        //public XmlSchema GetSchema()
-        //{
-        //    return null;
-        //}
-
-        //public void ReadXml(XmlReader reader)
-        //{
-        //    reader.MoveToContent();
-            
-        //}
-
-        //public void WriteXml(XmlWriter writer)
-        //{
-        //    writer.WriteStartElement("SensorCollection");
-        //    foreach(var sensor in this.List)
-        //    {
-        //        sensor.WriteXml(writer);
-        //    }
-        //    writer.WriteEndElement();
-        //    writer.Flush();
-        //}
+        public void WriteXml(XmlWriter writer)
+        {
+            writer.WriteStartElement("SensorCollection");
+            foreach (var sensor in this.List)
+            {
+                sensor.WriteXml(writer);
+            }
+            writer.WriteEndElement();
+            writer.Flush();
+        }
 
         public IEnumerator GetEnumerator()
         {
             return this.List.GetEnumerator();
+        }
+
+        public void ReadXml(XmlReader reader)
+        {
+            var doc = XDocument.Load(reader);
+            var sensorNodes = doc.Descendants(nameof(Sensor));          
+
+            foreach (var sensorNode in sensorNodes)
+            {
+                this.List.Add(new Sensor(sensorNode));
+            }
         }
     }
 }

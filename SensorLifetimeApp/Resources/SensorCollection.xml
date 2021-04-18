@@ -1,38 +1,17 @@
-<?xml version="1.0"?>
-<SensorCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Sensors>
-    <Sensor ID="1">
-      <Point x="0" y="0" />
-      <Radius>20</Radius>
-      <Battery power="Off" capacity="20" />
-    </Sensor>
-  </Sensors>
-  <Sensors>
-    <Sensor ID="2">
-      <Point x="62" y="21" />
-      <Radius>5</Radius>
-      <Battery power="Off" capacity="20" />
-    </Sensor>
-  </Sensors>
-  <Sensors>
-    <Sensor ID="3">
-      <Point x="4" y="3" />
-      <Radius>5</Radius>
-      <Battery power="Off" capacity="20" />
-    </Sensor>
-  </Sensors>
-  <Sensors>
-    <Sensor ID="4">
-      <Point x="20" y="39" />
-      <Radius>5</Radius>
-      <Battery power="Off" capacity="20" />
-    </Sensor>
-  </Sensors>
-  <Sensors>
-    <Sensor ID="5">
-      <Point x="0" y="94" />
-      <Radius>5</Radius>
-      <Battery power="On" capacity="20" />
-    </Sensor>
-  </Sensors>
+﻿<SensorCollection>
+  <Sensor ID="100">
+    <Point x="0" y="0" />
+    <Radius>5</Radius>
+    <Battery power="Off" capacity="20" />
+  </Sensor>
+  <Sensor ID="101">
+    <Point x="0" y="0" />
+    <Radius>5</Radius>
+    <Battery power="Off" capacity="20" />
+  </Sensor>
+  <Sensor ID="102">
+    <Point x="0" y="0" />
+    <Radius>5</Radius>
+    <Battery power="Off" capacity="20" />
+  </Sensor>
 </SensorCollection>
