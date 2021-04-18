@@ -18,16 +18,16 @@ namespace SensorLifetimeApp.Models
             this.Settings = ApplicationSettings.GetInstance();
             this.Width = Settings.ParamSettings.AreaWidth;
 
-            if(Settings.Area == null)
+            if(Settings.LoadFromSettings && Settings.Area != null)
             {
-                PoiCollection = new PoiCollection(this);
-                SensorCollection = new SensorCollection(Enums.SensorActivationType.Random, Settings);
+                PoiCollection = Settings.Area.PoiCollection;
+                SensorCollection = Settings.Area.SensorCollection;
                 Settings.Area = this;
             }
             else
             {
-                PoiCollection = Settings.Area.PoiCollection;
-                SensorCollection = Settings.Area.SensorCollection;
+                PoiCollection = new PoiCollection(this);
+                SensorCollection = new SensorCollection(Enums.SensorActivationType.Random, Settings);
                 Settings.Area = this;
             }
 

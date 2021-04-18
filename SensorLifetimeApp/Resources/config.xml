@@ -4,8 +4,8 @@
   <Language>en</Language>
   <ParamSettings>
     <MinimalCoverage>0.9</MinimalCoverage>
-    <PoiCount>36</PoiCount>
-    <SensorCount>5</SensorCount>
+    <PoiCount>441</PoiCount>
+    <SensorCount>10</SensorCount>
     <BatteryCapacity>20</BatteryCapacity>
     <BatteryConsumption>1</BatteryConsumption>
     <AreaWidth>100</AreaWidth>

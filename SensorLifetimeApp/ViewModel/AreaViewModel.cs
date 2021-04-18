@@ -9,7 +9,7 @@ namespace SensorLifetimeApp.ViewModel
     public class AreaViewModel// : ViewModelBase
     {
         public Area Area { get; }
-        public ApplicationSettings Settings { get; }
+        public ApplicationSettings Settings = ApplicationSettings.GetInstance();
         public List<POIViewModel> PoiViewModelCollection { get; }
         public List<SensorViewModel> SensorViewModelCollection { get; }
         
@@ -19,7 +19,6 @@ namespace SensorLifetimeApp.ViewModel
         public AreaViewModel(Area area)
         {
             this.Area = area;
-            this.Settings = ApplicationSettings.GetInstance();
             PoiViewModelCollection = new List<POIViewModel>();
             SensorViewModelCollection = new List<SensorViewModel>();
 

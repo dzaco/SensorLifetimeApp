@@ -65,6 +65,7 @@ namespace SensorLifetimeApp
                 // Open document
                 string filename = dialog.FileName;
                 Settings.Area.SensorCollection = new SensorCollection(SerializationHelpers.XmlDeserializeFromFile<SensorCollection>(filename));
+                Settings.LoadFromSettings = true;
                 Refresh();
             }
         }
@@ -95,6 +96,8 @@ namespace SensorLifetimeApp
             Settings.Language = Enums.Language.PL;
             Refresh();
         }
+
+
 
         #endregion
     }

@@ -29,6 +29,9 @@ namespace SensorLifetimeApp.Settings.Model
             return (String.IsNullOrEmpty(LanguageDictionary.FirstOrDefault(x => x.Key == selectedLanguageCode).Key)) ? false : true;
         }
 
+        [XmlIgnore]
+        public bool LoadFromSettings { get; set; }
+
         [XmlElement(elementName: nameof(SensorFilePath))]
         [DataMember]
         public string SensorFilePath { get; set; }
