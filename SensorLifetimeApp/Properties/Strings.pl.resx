@@ -144,6 +144,9 @@
   <data name="LoadState" xml:space="preserve">
     <value>Wczytaj Stan</value>
   </data>
+  <data name="RandSensors" xml:space="preserve">
+    <value>Losuj Sensory</value>
+  </data>
   <data name="Rebuild" xml:space="preserve">
     <value>Przebuduj</value>
   </data>

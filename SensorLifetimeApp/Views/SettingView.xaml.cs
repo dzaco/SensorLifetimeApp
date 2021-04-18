@@ -101,6 +101,16 @@ namespace SensorLifetimeApp.Views
         private void Rebuild_click(object sender, RoutedEventArgs e)
         {
             Save();
+            Settings.Area.SensorCollection.Update();
+            Settings.Area.PoiCollection.Update();
+            var parent = Application.Current.MainWindow as MainWindow;
+            parent.Refresh();
+        }
+
+        private void RandBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Save();
+            Settings.HowInitSensors = Enums.SensorActivationType.Random;
             var parent = Application.Current.MainWindow as MainWindow;
             parent.Refresh();
         }

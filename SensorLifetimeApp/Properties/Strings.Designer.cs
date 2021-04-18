@@ -142,6 +142,15 @@ namespace SensorLifetimeApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rand Sensors.
+        /// </summary>
+        public static string RandSensors {
+            get {
+                return ResourceManager.GetString("RandSensors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rebuild.
         /// </summary>
         public static string Rebuild {

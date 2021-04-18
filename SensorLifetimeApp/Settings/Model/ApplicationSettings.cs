@@ -30,7 +30,7 @@ namespace SensorLifetimeApp.Settings.Model
         }
 
         [XmlIgnore]
-        public bool LoadFromSettings { get; set; }
+        public Enums.SensorActivationType HowInitSensors { get; set; }
 
         [XmlElement(elementName: nameof(SensorFilePath))]
         [DataMember]
@@ -64,6 +64,11 @@ namespace SensorLifetimeApp.Settings.Model
                         {
                             var path = FileManager.GetFullPath(Names.ConfigFile);
                             _instance = ApplicationSettings.FromFile(path);
+                            if(FileManager.Exists(Names.SensorCollectionXml))
+                            {
+                                _instance.HowInitSensors = Enums.SensorActivationType.FromFile;
+                                _instance.Area = new Area();
+                            }
                         }
                         else
                             _instance = new ApplicationSettings();

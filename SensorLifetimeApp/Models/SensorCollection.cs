@@ -62,6 +62,7 @@ namespace SensorLifetimeApp.Models
             {
                 collection.Add( RandSensor(random, id) );
             }
+            Settings.HowInitSensors = Enums.SensorActivationType.FromMemory;
             return collection;
         }
         private List<Sensor> InitDeterministicCollection(string path)
@@ -103,6 +104,24 @@ namespace SensorLifetimeApp.Models
             this.WriteXml(writer);
             writer.Close();
         }
+
+        internal void Update()
+        {
+            bool changeRadius = false, changeBatteryCapacity = false;
+            if (this.List.First().Radius != Settings.ParamSettings.Radius)
+                changeRadius = true;
+            if (this.List.First().Battery.Capacity != Settings.ParamSettings.BatteryCapacity)
+                changeBatteryCapacity = true;
+
+            foreach(var sensor in List)
+            {
+                if (changeRadius)
+                    sensor.Radius = Settings.ParamSettings.Radius;
+                if (changeBatteryCapacity)
+                    sensor.Battery.Capacity = Settings.ParamSettings.BatteryCapacity;
+            }
+        }
+
         public XmlSchema GetSchema()
         {
             return null;

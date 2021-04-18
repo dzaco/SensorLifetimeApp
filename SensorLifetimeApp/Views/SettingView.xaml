@@ -103,12 +103,30 @@
                  Name="ProbabilityBox">
             </TextBox>
         </Grid>
-        
-        <Button Width="100" Height="20"
-                HorizontalAlignment="Center"
-                Name="RebuildeBtn"
-                Click="Rebuild_click"
-                Content="{x:Static p:Strings.Rebuild}">
-        </Button>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Grid.Row="0"
+                    Width="100" Height="20"
+                    HorizontalAlignment="Center"
+                    Name="RebuildeBtn"
+                    Click="Rebuild_click"
+                    Content="{x:Static p:Strings.Rebuild}">
+            </Button>
+            <Button Grid.Column="1" Grid.Row="0"
+                    Width="100" Height="20"
+                    HorizontalAlignment="Center"
+                    Name="RandBtn"
+                    Click="RandBtn_Click"
+                    Content="{x:Static p:Strings.RandSensors}">
+            </Button>
+        </Grid>
     </StackPanel>
 </UserControl>

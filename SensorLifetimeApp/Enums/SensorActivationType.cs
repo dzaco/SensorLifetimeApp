@@ -9,6 +9,7 @@ namespace SensorLifetimeApp.Enums
     public enum SensorActivationType
     {
         Random,
-        Deterministic
+        FromFile,
+        FromMemory
     }
 }

@@ -14,7 +14,7 @@ namespace SensorLifetimeApp.Models
     public class PoiCollection : IEnumerable
     {
         public List<POIViewModel> POIViewModelList { get; }        
-        public List<POI> List { get; }
+        public List<POI> List { get; private set; }
         public Area Parent { get; }
 
         private ApplicationSettings Settings = ApplicationSettings.GetInstance();
@@ -50,6 +50,14 @@ namespace SensorLifetimeApp.Models
         public IEnumerator GetEnumerator()
         {
             return List.GetEnumerator();
+        }
+
+        internal void Update()
+        {
+            if(this.List.Count != Settings.ParamSettings.PoiCount)
+            {
+                this.List = InitPoiCollection(this.Parent);
+            }
         }
     }
 }

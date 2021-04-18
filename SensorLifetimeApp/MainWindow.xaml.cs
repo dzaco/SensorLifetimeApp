@@ -65,7 +65,8 @@ namespace SensorLifetimeApp
                 // Open document
                 string filename = dialog.FileName;
                 Settings.Area.SensorCollection = new SensorCollection(SerializationHelpers.XmlDeserializeFromFile<SensorCollection>(filename));
-                Settings.LoadFromSettings = true;
+                Settings.HowInitSensors = Enums.SensorActivationType.FromFile;
+                Settings.SensorFilePath = filename;
                 Refresh();
             }
         }
