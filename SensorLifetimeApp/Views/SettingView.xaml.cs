@@ -103,6 +103,7 @@ namespace SensorLifetimeApp.Views
             Save();
             Settings.Area.SensorCollection.Update();
             Settings.Area.PoiCollection.Update();
+            Settings.HowInitSensors = Enums.SensorActivationType.FromMemory;
             var parent = Application.Current.MainWindow as MainWindow;
             parent.Refresh();
         }
