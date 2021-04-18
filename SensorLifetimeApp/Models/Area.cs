@@ -23,6 +23,7 @@ namespace SensorLifetimeApp.Models
                 PoiCollection = Settings.Area.PoiCollection;
                 SensorCollection = Settings.Area.SensorCollection;
                 Settings.Area = this;
+                Settings.LoadFromSettings = false;
             }
             else
             {
