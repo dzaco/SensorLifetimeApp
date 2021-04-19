@@ -74,7 +74,7 @@ namespace SensorLifetimeApp
             {
                 filename = null;
 
-                if (!FileManager.Exists(Names.SensorCollectionXml))
+                if (FileManager.Exists(Names.SensorCollectionXml))
                     return;
             }
             else
