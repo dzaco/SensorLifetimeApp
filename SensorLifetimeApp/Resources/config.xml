@@ -4,13 +4,13 @@
   <Language>en</Language>
   <ParamSettings>
     <MinimalCoverage>0.9</MinimalCoverage>
-    <PoiCount>441</PoiCount>
-    <SensorCount>10</SensorCount>
+    <PoiCount>36</PoiCount>
+    <SensorCount>5</SensorCount>
     <BatteryCapacity>20</BatteryCapacity>
     <BatteryConsumption>1</BatteryConsumption>
     <AreaWidth>100</AreaWidth>
-    <Radius>15</Radius>
-    <ActiveSensorProbability>0.8</ActiveSensorProbability>
+    <Radius>5</Radius>
+    <ActiveSensorProbability>0.5</ActiveSensorProbability>
     <Scale>5</Scale>
   </ParamSettings>
 </ApplicationSettings>
