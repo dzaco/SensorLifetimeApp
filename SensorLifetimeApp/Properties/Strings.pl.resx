@@ -153,6 +153,9 @@
   <data name="Rebuild" xml:space="preserve">
     <value>Przebuduj</value>
   </data>
+  <data name="SaveImage" xml:space="preserve">
+    <value>Zapisz Obraz</value>
+  </data>
   <data name="SaveState" xml:space="preserve">
     <value>Zapisz Stan</value>
   </data>

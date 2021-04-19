@@ -117,5 +117,10 @@ namespace SensorLifetimeApp
 
 
         #endregion
+
+        private void SaveImgBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

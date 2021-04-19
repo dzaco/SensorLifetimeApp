@@ -169,6 +169,15 @@ namespace SensorLifetimeApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save Image.
+        /// </summary>
+        public static string SaveImage {
+            get {
+                return ResourceManager.GetString("SaveImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save State.
         /// </summary>
         public static string SaveState {
