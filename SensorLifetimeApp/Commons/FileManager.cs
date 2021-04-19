@@ -80,7 +80,6 @@ namespace SensorLifetimeApp.Commons
         internal static string GetSavePathFromDialog(Extension extension)
         {
             var dialog = new Microsoft.Win32.SaveFileDialog();
-            dialog.FileName = Names.SensorCollectionXml; // Default file name
             dialog.DefaultExt = extension.Value; // Default file extension
             dialog.InitialDirectory = FileManager.ResourcePath;
             dialog.Filter = extension.Filter;
@@ -94,7 +93,6 @@ namespace SensorLifetimeApp.Commons
         internal static string GetLoadPathFromDialog(Extension extension)
         {
             var dialog = new Microsoft.Win32.OpenFileDialog();
-            dialog.FileName = Names.SensorCollectionXml; // Default file name
             dialog.DefaultExt = extension.Value;
             dialog.InitialDirectory = FileManager.ResourcePath;
             dialog.Filter = extension.Filter;
