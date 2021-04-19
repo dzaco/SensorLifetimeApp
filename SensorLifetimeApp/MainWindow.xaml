@@ -12,12 +12,12 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="{x:Static p:Strings.File}">
-                <MenuItem Header="{x:Static p:Strings.LoadState}" Click="LoadStateClick">
+                <MenuItem Header="{x:Static p:Strings.SaveState}" Click="SaveStateClick">
                     <MenuItem.Icon>
                         <Image Source="/Images/png/save-file-option.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="{x:Static p:Strings.SaveState}" Click="SaveStateClick">
+                <MenuItem Header="{x:Static p:Strings.LoadState}" Click="LoadStateClick">
                     <MenuItem.Icon>
                         <Image Source="/Images/png/open-folder-outline.png"/>
                     </MenuItem.Icon>
@@ -39,16 +39,17 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="9.333"/>
+                    <ColumnDefinition Width="290.667"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <local:SettingView Grid.Column="0"></local:SettingView>
-                <local:AreaView Grid.Column="1"
-                                Margin="20"></local:AreaView>
+                <local:SettingView Grid.Column="0" Grid.ColumnSpan="2"></local:SettingView>
+                <local:AreaView Grid.Column="2"
+                                Margin="20,20,20.333,20"></local:AreaView>
             </Grid>
         </Border>
     </DockPanel>
-    
+
 
 </Window>

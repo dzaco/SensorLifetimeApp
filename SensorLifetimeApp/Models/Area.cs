@@ -9,14 +9,13 @@ namespace SensorLifetimeApp.Models
     public class Area
     {
         private ApplicationSettings Settings { get; }
-        private int Width { get; }
+        public decimal Coverage { get; }
         public PoiCollection PoiCollection { get; }
         public SensorCollection SensorCollection { get; set; }
 
         public Area()
         {
             this.Settings = ApplicationSettings.GetInstance();
-            this.Width = Settings.ParamSettings.AreaWidth;
 
             if(Settings.HowInitSensors == Enums.SensorActivationType.FromMemory && Settings.Area != null)
             {
@@ -30,11 +29,18 @@ namespace SensorLifetimeApp.Models
                 SensorCollection = new SensorCollection(Settings.HowInitSensors, Settings);
                 Settings.Area = this;
             }
-        }
-        public Area(SensorCollection sensorCollection)
-        {
-            this.Settings = ApplicationSettings.GetInstance();
-            this.Width = Settings.ParamSettings.AreaWidth;
+
+            if (SensorCollection.List.Count == 0)
+                Coverage = 0;
+            else
+            {
+                int count = 0;
+                foreach (POI poi in PoiCollection)
+                {
+                    if (IsCovered(poi)) count++;
+                }
+                Coverage = Math.Round(((decimal)count / (decimal)Settings.ParamSettings.PoiCount) * 100 , 2);
+            }
         }
         public Selection Selection { get { return Selection.GetInstance(); } }
 

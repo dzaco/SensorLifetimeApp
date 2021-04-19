@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <ApplicationSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SensorFilePath>C:\Users\Dzaco\Desktop\Private\project\SensorLifetimeApp\SensorLifetimeApp\Resources\SensorCollection.xml</SensorFilePath>
-  <Language>en</Language>
+  <Language>pl</Language>
   <ParamSettings>
     <MinimalCoverage>0.9</MinimalCoverage>
     <PoiCount>441</PoiCount>

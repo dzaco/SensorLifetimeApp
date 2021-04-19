@@ -126,6 +126,9 @@
   <data name="BatteryCapacity" xml:space="preserve">
     <value>Pojemność Baterii</value>
   </data>
+  <data name="Coverage" xml:space="preserve">
+    <value>Pokrycie</value>
+  </data>
   <data name="CreatedUnderPath" xml:space="preserve">
     <value>Stworzono pod ścieżką</value>
   </data>

@@ -50,7 +50,8 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
-                <RowDefinition Height="20"/>
+                <RowDefinition/>
+                <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -102,6 +103,14 @@
                  Width="100" Height="20"
                  Name="ProbabilityBox">
             </TextBox>
+            <Label Grid.Row="4" Grid.Column="0"
+                   HorizontalAlignment="Right" VerticalAlignment="Center"
+                   Content="{x:Static p:Strings.Coverage}"/>
+            <TextBlock Grid.Row="4" Grid.Column="1"
+                   Width="100" Name="Coverage" VerticalAlignment="Center">
+                <Run Text="{Binding Coverage, Mode=OneWay}"/>
+                <Run Text="%"/>
+            </TextBlock>
         </Grid>
 
         <Grid>
@@ -128,5 +137,7 @@
                     Content="{x:Static p:Strings.RandSensors}">
             </Button>
         </Grid>
+
+
     </StackPanel>
 </UserControl>

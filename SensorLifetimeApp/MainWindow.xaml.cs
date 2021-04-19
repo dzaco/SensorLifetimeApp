@@ -74,7 +74,23 @@ namespace SensorLifetimeApp
         public void SaveStateClick(object sender, RoutedEventArgs e)
         {
             Settings.SaveToStorage();
-            Settings.Area.SensorCollection.WriteToFile(FileManager.GetFullPath(Names.SensorCollectionXml));
+
+            var dialog = new Microsoft.Win32.SaveFileDialog();
+            dialog.FileName = Names.SensorCollectionXml; // Default file name
+            dialog.DefaultExt = ".xml"; // Default file extension
+            dialog.InitialDirectory = FileManager.ResourcePath;
+
+            bool? result = dialog.ShowDialog();
+            if(result == true)
+            {
+                string filename = dialog.FileName;
+                Settings.Area.SensorCollection.WriteToFile(filename);
+            }
+            else
+            {
+                Settings.Area.SensorCollection.WriteToFile(FileManager.GetFullPath(Names.SensorCollectionXml));
+            }
+
             MessageBox.Show(Properties.Strings.SaveUnderPath + ": " + FileManager.GetFullPath(Names.SensorCollectionXml));
         }
 

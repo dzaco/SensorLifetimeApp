@@ -26,6 +26,7 @@ namespace SensorLifetimeApp.Views
         public ApplicationSettings Settings = ApplicationSettings.GetInstance();
         public SettingView()
         {
+            //this.DataContext = Settings.Area;
             InitializeComponent();
         }
 
@@ -42,6 +43,7 @@ namespace SensorLifetimeApp.Views
             SensorRadiusBox.Text = Settings.ParamSettings.Radius.ToString();
             BatteryCapacityBox.Text = Settings.ParamSettings.BatteryCapacity.ToString();
             ProbabilityBox.Text = Settings.ParamSettings.ActiveSensorProbability.ToString();
+            this.Coverage.Text = Settings.Area.Coverage.ToString();
         }
 
         private void NumberPreviewTextInput(object sender, TextCompositionEventArgs e)

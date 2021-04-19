@@ -88,6 +88,15 @@ namespace SensorLifetimeApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Coverage.
+        /// </summary>
+        public static string Coverage {
+            get {
+                return ResourceManager.GetString("Coverage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Created Under the Path.
         /// </summary>
         public static string CreatedUnderPath {
