@@ -77,6 +77,34 @@ namespace SensorLifetimeApp.Commons
 
         }
 
+        internal static string GetSavePathFromDialog(Extension extension)
+        {
+            var dialog = new Microsoft.Win32.SaveFileDialog();
+            dialog.FileName = Names.SensorCollectionXml; // Default file name
+            dialog.DefaultExt = extension.Value; // Default file extension
+            dialog.InitialDirectory = FileManager.ResourcePath;
+            dialog.Filter = extension.Filter;
+
+            if (dialog.ShowDialog() == true)
+                return dialog.FileName;
+            else
+                return null;
+        }
+
+        internal static string GetLoadPathFromDialog(Extension extension)
+        {
+            var dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.FileName = Names.SensorCollectionXml; // Default file name
+            dialog.DefaultExt = extension.Value;
+            dialog.InitialDirectory = FileManager.ResourcePath;
+            dialog.Filter = extension.Filter;
+
+            if (dialog.ShowDialog() == true)
+                return dialog.FileName;
+            else
+                return null;
+        }
+
         public static Stream ReadStream(string path)
         {
             Stream stream = new MemoryStream();

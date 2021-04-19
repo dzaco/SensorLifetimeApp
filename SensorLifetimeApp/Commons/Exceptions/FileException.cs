@@ -9,6 +9,6 @@ namespace SensorLifetimeApp.Commons.Exceptions
     public class FileException : ExceptionWithMessage
     {
         public FileException(string msg) : base(msg) { }
-        public FileException() : base(Properties.Strings.FileNotFind) { }
+        public FileException() : base(Properties.Strings.FileNotFound) { }
     }
 }
