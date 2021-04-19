@@ -9,7 +9,23 @@ namespace SensorLifetimeApp.Models
     public class Area
     {
         private ApplicationSettings Settings { get; }
-        public decimal Coverage { get; }
+        public decimal Coverage
+        {
+            get
+            {
+                if (SensorCollection.List.Count == 0)
+                    return 0;
+                else
+                {
+                    int count = 0;
+                    foreach (POI poi in PoiCollection)
+                    {
+                        if (IsCovered(poi)) count++;
+                    }
+                    return Math.Round(((decimal)count / (decimal)Settings.ParamSettings.PoiCount) * 100, 2);
+                }
+            }
+        }
         public PoiCollection PoiCollection { get; }
         public SensorCollection SensorCollection { get; set; }
 
@@ -30,17 +46,6 @@ namespace SensorLifetimeApp.Models
                 Settings.Area = this;
             }
 
-            if (SensorCollection.List.Count == 0)
-                Coverage = 0;
-            else
-            {
-                int count = 0;
-                foreach (POI poi in PoiCollection)
-                {
-                    if (IsCovered(poi)) count++;
-                }
-                Coverage = Math.Round(((decimal)count / (decimal)Settings.ParamSettings.PoiCount) * 100 , 2);
-            }
         }
         public Selection Selection { get { return Selection.GetInstance(); } }
 

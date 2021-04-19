@@ -43,7 +43,7 @@ namespace SensorLifetimeApp.Views
             SensorRadiusBox.Text = Settings.ParamSettings.Radius.ToString();
             BatteryCapacityBox.Text = Settings.ParamSettings.BatteryCapacity.ToString();
             ProbabilityBox.Text = Settings.ParamSettings.ActiveSensorProbability.ToString();
-            this.Coverage.Text = Settings.Area.Coverage.ToString();
+            this.Coverage.Text = Settings.Area.Coverage.ToString() + " %";
         }
 
         private void NumberPreviewTextInput(object sender, TextCompositionEventArgs e)
