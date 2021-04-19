@@ -47,9 +47,6 @@
                 <local:SettingView Grid.Column="0" Grid.ColumnSpan="2"></local:SettingView>
                 <local:AreaView Grid.Column="2"
                                 Margin="20,20,20.333,20"></local:AreaView>
-                <Button 
-                    Name="SaveImgBtn" Click="SaveImgBtn_Click"
-                    Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="95,499,0,0" VerticalAlignment="Top" Width="75"/>
             </Grid>
         </Border>
     </DockPanel>

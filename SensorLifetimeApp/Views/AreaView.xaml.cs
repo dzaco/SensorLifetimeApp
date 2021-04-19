@@ -55,5 +55,25 @@ namespace SensorLifetimeApp.Views
             }
             
         }
+
+        private void SaveImgBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+            var rect = myCanvas.Children[0] as Rectangle;
+            RenderTargetBitmap rtb = new RenderTargetBitmap((int)rect.Width +5,
+            (int)rect.Height + 5, 96d, 96d, PixelFormats.Default);
+            rtb.Render(myCanvas);
+
+            var crop = new CroppedBitmap(rtb, new Int32Rect(0, 0, (int)rect.Width, (int)rect.Height));
+
+            BitmapEncoder pngEncoder = new PngBitmapEncoder();
+            pngEncoder.Frames.Add(BitmapFrame.Create(crop));
+
+            using (var fs = System.IO.File.OpenWrite(FileManager.GetFullPath("AreaImage.png")))
+            {
+                pngEncoder.Save(fs);
+            }
+        }
+
     }
 }

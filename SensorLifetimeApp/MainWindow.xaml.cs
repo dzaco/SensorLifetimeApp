@@ -5,6 +5,10 @@ using System.Windows;
 using SensorLifetimeApp.Enums;
 using SensorLifetimeApp.Commons;
 using SensorLifetimeApp.Settings.Model;
+using System.Windows.Media.Imaging;
+using System.Windows.Controls;
+using System.IO;
+using System.Drawing;
 
 namespace SensorLifetimeApp
 {
@@ -118,9 +122,5 @@ namespace SensorLifetimeApp
 
         #endregion
 
-        private void SaveImgBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
