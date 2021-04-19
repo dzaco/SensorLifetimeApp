@@ -24,6 +24,7 @@ namespace SensorLifetimeApp.ViewModel
         {
             List<Shape> list = new List<Shape>();
             var shape = new Rectangle();
+            shape.ToolTip = POI;
             shape.Stroke = System.Windows.Media.Brushes.Black;
             if (IsCovered)
                 shape.Fill = System.Windows.Media.Brushes.Green;

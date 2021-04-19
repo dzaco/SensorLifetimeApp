@@ -38,7 +38,7 @@ namespace SensorLifetimeApp.Models
             {
                 for (int col = 1; col <= poiSqrt + 1; col++, x += distanceBetweenPOI)
                 {
-                    var poi = new POI(id, new Point(x, y), parent);
+                    var poi = new POI(id++, new Point(x, y), parent);
                     poiCollection.Add(poi);
                 }
                 x = 0;

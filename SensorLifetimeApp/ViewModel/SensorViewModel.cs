@@ -1,13 +1,9 @@
-﻿using SensorLifetimeApp.Commons;
-using SensorLifetimeApp.Commons.Interfaces;
+﻿using SensorLifetimeApp.Commons.Interfaces;
 using SensorLifetimeApp.Models;
 using SensorLifetimeApp.Settings.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
@@ -29,6 +25,7 @@ namespace SensorLifetimeApp.ViewModel
             List<Shape> list = new List<Shape>();
 
             var circle = new Ellipse();
+            circle.ToolTip = Sensor;
             if (Sensor.Battery.IsActive)
             {
                 var brush = new SolidColorBrush(Color.FromArgb(100, (byte)0, (byte)255, (byte)0));
@@ -67,11 +64,20 @@ namespace SensorLifetimeApp.ViewModel
             double top = (Sensor.Point.Y * Settings.ParamSettings.Scale) - (center.Height / 2);
 
             center.Margin = new Thickness(left, top, 0, 0);
+            center.ToolTip = Sensor;
+            
+            
             list.Add(center);
 
 
 
             return list;
         }
+
+        private void UIElementMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Mouse Down", "Rectangle");
+        }
+
     }
 }

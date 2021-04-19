@@ -10,7 +10,7 @@
              Loaded="AreaRectangleLoaded">
 
     <StackPanel>
-        <Canvas Name="myCanvas">
+        <Canvas Name="myCanvas" MouseDown="Canvas_MouseDown">
 
         </Canvas>
         <Button x:Name="SaveImgBtn" Click="SaveImgBtn_Click" 
