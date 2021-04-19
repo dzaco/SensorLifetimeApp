@@ -28,6 +28,8 @@ namespace SensorLifetimeApp
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             WindowState = WindowState.Maximized;
             InitializeComponent();
+
+            SaveStateClick(null, null);
         }
 
         public MainWindow(MainWindow prevWindow)
@@ -53,21 +55,10 @@ namespace SensorLifetimeApp
 
         public void LoadStateClick(object sender, RoutedEventArgs e)
         {
-            // Configure open file dialog box
-            var dialog = new Microsoft.Win32.OpenFileDialog();
-            dialog.FileName = Names.SensorCollectionXml; // Default file name
-            dialog.DefaultExt = ".xml"; // Default file extension
-            dialog.InitialDirectory = FileManager.ResourcePath;
-            //dialog.Filter = "Text documents (.txt)|*.txt"; // Filter files by extension
+            var filename = FileManager.GetLoadPathFromDialog(Enums.Extension.XML);
 
-            // Show open file dialog box
-            bool? result = dialog.ShowDialog();
-
-            // Process open file dialog box results
-            if (result == true)
+            if (filename != null)
             {
-                // Open document
-                string filename = dialog.FileName;
                 Settings.Area.SensorCollection = new SensorCollection(SerializationHelpers.XmlDeserializeFromFile<SensorCollection>(filename));
                 Settings.HowInitSensors = Enums.SensorActivationType.FromFile;
                 Settings.SensorFilePath = filename;
@@ -78,24 +69,27 @@ namespace SensorLifetimeApp
         public void SaveStateClick(object sender, RoutedEventArgs e)
         {
             Settings.SaveToStorage();
-
-            var dialog = new Microsoft.Win32.SaveFileDialog();
-            dialog.FileName = Names.SensorCollectionXml; // Default file name
-            dialog.DefaultExt = ".xml"; // Default file extension
-            dialog.InitialDirectory = FileManager.ResourcePath;
-
-            bool? result = dialog.ShowDialog();
-            if(result == true)
+            string filename = null;
+            if (sender == null && e == null)
             {
-                string filename = dialog.FileName;
+                filename = null;
+
+                if (!FileManager.Exists(Names.SensorCollectionXml))
+                    return;
+            }
+            else
+                filename = FileManager.GetSavePathFromDialog(Enums.Extension.XML);
+
+            if(filename != null)
+            {
                 Settings.Area.SensorCollection.WriteToFile(filename);
+                MessageBox.Show(Properties.Strings.SaveUnderPath + ": " + FileManager.GetFullPath(Names.SensorCollectionXml));
             }
             else
             {
                 Settings.Area.SensorCollection.WriteToFile(FileManager.GetFullPath(Names.SensorCollectionXml));
             }
 
-            MessageBox.Show(Properties.Strings.SaveUnderPath + ": " + FileManager.GetFullPath(Names.SensorCollectionXml));
         }
 
         public void GenerateEmptyFileClick(object sender, RoutedEventArgs e)

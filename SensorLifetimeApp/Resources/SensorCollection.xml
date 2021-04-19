@@ -1,51 +1,26 @@
 ﻿<SensorCollection>
   <Sensor ID="1">
-    <Point x="10" y="29" />
+    <Point x="85" y="83" />
     <Radius>5</Radius>
     <Battery power="On" capacity="20" />
   </Sensor>
   <Sensor ID="2">
-    <Point x="38" y="95" />
+    <Point x="31" y="33" />
     <Radius>5</Radius>
     <Battery power="On" capacity="20" />
   </Sensor>
   <Sensor ID="3">
-    <Point x="14" y="22" />
+    <Point x="42" y="0" />
     <Radius>5</Radius>
     <Battery power="On" capacity="20" />
   </Sensor>
   <Sensor ID="4">
-    <Point x="72" y="7" />
+    <Point x="99" y="35" />
     <Radius>5</Radius>
     <Battery power="On" capacity="20" />
   </Sensor>
   <Sensor ID="5">
-    <Point x="53" y="11" />
-    <Radius>5</Radius>
-    <Battery power="Off" capacity="20" />
-  </Sensor>
-  <Sensor ID="6">
-    <Point x="1" y="74" />
-    <Radius>5</Radius>
-    <Battery power="On" capacity="20" />
-  </Sensor>
-  <Sensor ID="7">
-    <Point x="70" y="38" />
-    <Radius>5</Radius>
-    <Battery power="Off" capacity="20" />
-  </Sensor>
-  <Sensor ID="8">
-    <Point x="12" y="47" />
-    <Radius>5</Radius>
-    <Battery power="On" capacity="20" />
-  </Sensor>
-  <Sensor ID="9">
-    <Point x="62" y="71" />
-    <Radius>5</Radius>
-    <Battery power="Off" capacity="20" />
-  </Sensor>
-  <Sensor ID="10">
-    <Point x="18" y="37" />
+    <Point x="77" y="1" />
     <Radius>5</Radius>
     <Battery power="On" capacity="20" />
   </Sensor>
