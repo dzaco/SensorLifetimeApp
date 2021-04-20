@@ -117,9 +117,9 @@ namespace SensorLifetimeApp.Properties {
         /// <summary>
         ///   Looks up a localized string similar to File Not Find.
         /// </summary>
-        public static string FileNotFound {
+        public static string FileNotFind {
             get {
-                return ResourceManager.GetString("FileNotFound", resourceCulture);
+                return ResourceManager.GetString("FileNotFind", resourceCulture);
             }
         }
         
@@ -129,6 +129,15 @@ namespace SensorLifetimeApp.Properties {
         public static string GenerateEmptyFile {
             get {
                 return ResourceManager.GetString("GenerateEmptyFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Illegal argument.
+        /// </summary>
+        public static string IllegalArgument {
+            get {
+                return ResourceManager.GetString("IllegalArgument", resourceCulture);
             }
         }
         

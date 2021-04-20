@@ -141,6 +141,9 @@
   <data name="GenerateEmptyFile" xml:space="preserve">
     <value>Generate Empty XML File</value>
   </data>
+  <data name="IllegalArgument" xml:space="preserve">
+    <value>Illegal argument</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
