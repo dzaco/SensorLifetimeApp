@@ -86,10 +86,16 @@ namespace SensorLifetimeApp
                     return;
             }
             else
-                filename = FileManager.GetSavePathFromDialog(Enums.Extension.XML);
+                filename = FileManager.GetSavePathFromDialog();
 
-            if(filename != null)
+            if (filename != null && FileManager.IsXml(filename))
             {
+                Settings.Area.SensorCollection.WriteToFile(filename);
+                MessageBox.Show(Properties.Strings.SaveUnderPath + ": " + FileManager.GetFullPath(Names.SensorCollectionXml));
+            }
+            else if (filename != null && FileManager.IsTxt(filename))
+            {
+                Settings.Area.SensorCollection.WriteToFile(filename.Replace(Extension.TXT.Value, "") + Extension.XML.Value);
                 Settings.Area.SensorCollection.WriteToFile(filename);
                 MessageBox.Show(Properties.Strings.SaveUnderPath + ": " + FileManager.GetFullPath(Names.SensorCollectionXml));
             }

@@ -94,16 +94,24 @@ namespace SensorLifetimeApp.Models
         }
         public void WriteToFile(string path)
         {
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.OmitXmlDeclaration = true;
-            settings.ConformanceLevel = ConformanceLevel.Auto;
-            settings.CloseOutput = false;
-            settings.Indent = true;
+            if(FileManager.IsXml(path))
+            {
+                XmlWriterSettings settings = new XmlWriterSettings();
+                settings.OmitXmlDeclaration = true;
+                settings.ConformanceLevel = ConformanceLevel.Auto;
+                settings.CloseOutput = false;
+                settings.Indent = true;
 
-            var writer = XmlWriter.Create(FileManager.GetFullPath(path), settings);
-            this.WriteXml(writer);
-            writer.Close();
+                var writer = XmlWriter.Create(FileManager.GetFullPath(path), settings);
+                this.WriteXml(writer);
+                writer.Close();
+            }
+            else
+            {
+                File.WriteAllText(path, Converter.SensorCollection2String(this));
+            }
         }
+        
 
         internal void Update()
         {

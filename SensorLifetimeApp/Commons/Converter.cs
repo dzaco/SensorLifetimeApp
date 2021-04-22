@@ -74,7 +74,7 @@ namespace SensorLifetimeApp.Commons
             {
                 return Convert.ToInt16(val);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new IllegalArgumentException($"Cannot parse {val} to int");
             }
@@ -87,7 +87,7 @@ namespace SensorLifetimeApp.Commons
                 double d = Convert.ToDouble(val);
                 return Math.Round(d, 2);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new IllegalArgumentException($"Cannot parse {val} to double");
             }
@@ -105,6 +105,22 @@ namespace SensorLifetimeApp.Commons
             {
                 throw new IllegalArgumentException($"Cannot parse {val} to boolean");
             }
+        }
+
+
+        public static string SensorCollection2String(SensorCollection collection)
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.Append("#id x y state").Append("\n");
+            foreach(Sensor s in collection.List)
+            {
+                builder.Append(s.ID).Append(" ")
+                    .Append(s.Point.X).Append(" ")
+                    .Append(s.Point.Y).Append(" ")
+                    .Append(s.Battery.IsActive ? "1" : "0")
+                    .Append("\n");
+            }
+            return builder.ToString();
         }
 
     }

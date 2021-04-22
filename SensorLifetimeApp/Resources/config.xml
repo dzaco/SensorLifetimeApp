@@ -9,7 +9,7 @@
     <BatteryCapacity>20</BatteryCapacity>
     <BatteryConsumption>1</BatteryConsumption>
     <AreaWidth>100</AreaWidth>
-    <Radius>5</Radius>
+    <Radius>20</Radius>
     <ActiveSensorProbability>0.5</ActiveSensorProbability>
     <Scale>5</Scale>
   </ParamSettings>
