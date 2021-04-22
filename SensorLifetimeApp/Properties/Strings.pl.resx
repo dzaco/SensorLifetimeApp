@@ -135,7 +135,7 @@
   <data name="File" xml:space="preserve">
     <value>Plik</value>
   </data>
-  <data name="FileNotFind" xml:space="preserve">
+  <data name="FileNotFound" xml:space="preserve">
     <value>Nie znaleziono pliku</value>
   </data>
   <data name="GenerateEmptyFile" xml:space="preserve">

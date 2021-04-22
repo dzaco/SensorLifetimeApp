@@ -41,5 +41,18 @@ namespace SensorLifetimeApp.Commons.Tests
                 Assert.Fail();
             }
         }
+
+        [TestMethod()]
+        public void IsXmlTest()
+        {
+            string filename = "test.xml";
+            FileManager.CreateFileIfNotExists(filename);
+            Assert.IsTrue(FileManager.IsXml(filename));
+
+            filename = "test2.txt";
+            FileManager.CreateFileIfNotExists(filename);
+            Assert.IsFalse(FileManager.IsXml(filename));
+
+        }
     }
 }

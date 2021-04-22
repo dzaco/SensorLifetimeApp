@@ -117,9 +117,9 @@ namespace SensorLifetimeApp.Properties {
         /// <summary>
         ///   Looks up a localized string similar to File Not Find.
         /// </summary>
-        public static string FileNotFind {
+        public static string FileNotFound {
             get {
-                return ResourceManager.GetString("FileNotFind", resourceCulture);
+                return ResourceManager.GetString("FileNotFound", resourceCulture);
             }
         }
         

@@ -50,6 +50,11 @@ namespace SensorLifetimeApp.Models
 
             this.Battery = new Battery(xPower == "On" ? Enums.Power.On : Enums.Power.Off, xCapacity);
         }
+
+        public Sensor(int id, double x, double y, bool state) : this(id, new Point(x, y), null)
+        {
+            this.Battery.Power = state ? Enums.Power.On : Enums.Power.Off;
+        }
         #endregion
 
         public bool IsInRange(POI poi)

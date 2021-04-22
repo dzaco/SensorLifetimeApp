@@ -77,6 +77,16 @@ namespace SensorLifetimeApp.Commons
 
         }
 
+
+        public static bool IsXml(string filename)
+        {
+            return Path.GetExtension(filename) == Extension.XML.Value;
+        }
+        public static bool IsTxt(string filename)
+        {
+            return Path.GetExtension(filename) == Extension.TXT.Value;
+        }
+
         internal static string GetSavePathFromDialog(Extension extension)
         {
             var dialog = new Microsoft.Win32.SaveFileDialog();
@@ -91,13 +101,13 @@ namespace SensorLifetimeApp.Commons
                 return null;
         }
 
-        internal static string GetLoadPathFromDialog(Extension extension)
+        internal static string GetLoadPathFromDialog()
         {
             var dialog = new Microsoft.Win32.OpenFileDialog();
             dialog.FileName = Names.SensorCollectionXml; // Default file name
-            dialog.DefaultExt = extension.Value;
+            dialog.DefaultExt = Extension.XML.Value;
             dialog.InitialDirectory = FileManager.ResourcePath;
-            dialog.Filter = extension.Filter;
+            dialog.Filter = "XML or TXT file | *.xml; *.txt";
 
             if (dialog.ShowDialog() == true)
                 return dialog.FileName;

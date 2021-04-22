@@ -55,10 +55,18 @@ namespace SensorLifetimeApp
 
         public void LoadStateClick(object sender, RoutedEventArgs e)
         {
-            var filename = FileManager.GetLoadPathFromDialog(Enums.Extension.XML);
+            var filename = FileManager.GetLoadPathFromDialog();
 
-            if (filename != null)
+            if (filename != null && FileManager.IsXml(filename))
             {
+                Settings.Area.SensorCollection = new SensorCollection(SerializationHelpers.XmlDeserializeFromFile<SensorCollection>(filename));
+                Settings.HowInitSensors = Enums.SensorActivationType.FromFile;
+                Settings.SensorFilePath = filename;
+                Refresh();
+            }
+            else if(filename != null && FileManager.IsTxt(filename))
+            {
+                filename = Converter.Txt2Xml(filename);
                 Settings.Area.SensorCollection = new SensorCollection(SerializationHelpers.XmlDeserializeFromFile<SensorCollection>(filename));
                 Settings.HowInitSensors = Enums.SensorActivationType.FromFile;
                 Settings.SensorFilePath = filename;
