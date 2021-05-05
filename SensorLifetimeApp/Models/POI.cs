@@ -16,7 +16,13 @@ namespace SensorLifetimeApp.Models
     public class POI : AreaComponent
     {
         #region Property
-        public bool IsCovered { get; }
+        public bool IsCovered
+        {
+            get
+            {
+                return this.CoverSensors.Count > 0;
+            }
+        }
         public List<Sensor> CoverSensors
         {
             get

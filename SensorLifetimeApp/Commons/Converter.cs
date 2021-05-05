@@ -94,9 +94,13 @@ namespace SensorLifetimeApp.Commons
         }
         public static double ToDouble(double val)
         {
+            return Converter.ToDouble(val, 2);
+        }
+        public static double ToDouble(double val, int decimals)
+        {
             try
             {
-                return Math.Round(val, 2);
+                return Math.Round(val, decimals);
             }
             catch (Exception)
             {

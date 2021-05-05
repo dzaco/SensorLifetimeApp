@@ -5,6 +5,7 @@ using System.Windows;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using System.Linq;
 
 namespace SensorLifetimeApp.Models
 {
@@ -26,9 +27,11 @@ namespace SensorLifetimeApp.Models
             {
                 if (PoisInRange == null || PoisInRange.Count == 0)
                     return 0;
+                if (Battery.IsActive)
+                    return 100;
 
-                int count = PoisInRange.FindAll(poi => poi.IsCovered).Count;
-                return count / PoisInRange.Count;
+                int count = PoisInRange.Where(poi => poi.IsCovered).Count();
+                return Math.Round(((decimal)count / (decimal)PoisInRange.Count) * 100, 2);
             }
         }
         #endregion
@@ -150,7 +153,10 @@ namespace SensorLifetimeApp.Models
 
         public override string ToString()
         {
-            return $"Sensor {ID}\n X={Point.X}, Y={Point.Y} R={Radius}\n {Properties.Strings.Battery} {Battery.Power} {Battery.Capacity}%";
+            return $"Sensor {ID}\n " +
+                $"X={Point.X}, Y={Point.Y} R={Radius}\n " +
+                $"{Properties.Strings.Battery} {Battery.Power} {Battery.Capacity}%\n" +
+                $"Cov={Coverage}%";
         }
     }
 }
