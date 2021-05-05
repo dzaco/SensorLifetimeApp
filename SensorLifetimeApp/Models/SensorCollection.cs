@@ -72,10 +72,10 @@ namespace SensorLifetimeApp.Models
         }
         private Sensor RandSensor(Random random, int id )
         {
-            int x = random.Next(0, Settings.ParamSettings.AreaWidth);
-            int y = random.Next(0, Settings.ParamSettings.AreaWidth);
-            var p = random.NextDouble();
-            Power power = (p <= Settings.ParamSettings.ActiveSensorProbability)? Power.On : Power.Off;
+            double x = Converter.ToDouble(random.NextDouble() * Settings.ParamSettings.AreaWidth);
+            double y = Converter.ToDouble(random.NextDouble() * Settings.ParamSettings.AreaWidth);
+            
+            Power power = (random.NextDouble() <= Settings.ParamSettings.ActiveSensorProbability)? Power.On : Power.Off;
 
             return new Sensor(id, new Point(x,y), Parent, Settings.ParamSettings.Radius, new Battery(power, Settings.ParamSettings.BatteryCapacity) );
 

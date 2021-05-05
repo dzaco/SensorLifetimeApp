@@ -92,6 +92,17 @@ namespace SensorLifetimeApp.Commons
                 throw new IllegalArgumentException($"Cannot parse {val} to double");
             }
         }
+        public static double ToDouble(double val)
+        {
+            try
+            {
+                return Math.Round(val, 2);
+            }
+            catch (Exception)
+            {
+                throw new IllegalArgumentException($"Cannot round {val} to 2 decimals");
+            }
+        }
         public static bool ToBool(string val)
         {
             try

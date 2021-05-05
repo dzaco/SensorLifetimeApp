@@ -91,6 +91,7 @@ namespace SensorLifetimeApp
             if (filename != null && FileManager.IsXml(filename))
             {
                 Settings.Area.SensorCollection.WriteToFile(filename);
+                Settings.Area.SensorCollection.WriteToFile(filename.Replace(Extension.XML.Value, "") + Extension.TXT.Value);
                 MessageBox.Show(Properties.Strings.SaveUnderPath + ": " + FileManager.GetFullPath(Names.SensorCollectionXml));
             }
             else if (filename != null && FileManager.IsTxt(filename))

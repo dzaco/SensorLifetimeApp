@@ -39,8 +39,8 @@ namespace SensorLifetimeApp.Models
             this.ID = Int16.Parse(sensorNode.Attribute("ID").Value);
             
             var xPoint = sensorNode.Element("Point");
-            int x = Int16.Parse( xPoint.Attribute("x").Value);
-            int y = Int16.Parse( xPoint.Attribute("y").Value);
+            double x = Converter.ToDouble( xPoint.Attribute("x").Value);
+            double y = Converter.ToDouble( xPoint.Attribute("y").Value);
             this.Point = new Point(x,y);
 
             this.Radius = Int16.Parse( sensorNode.Element("Radius").Value );
@@ -79,7 +79,7 @@ namespace SensorLifetimeApp.Models
             var y = reader.GetAttribute("y");
 
 
-            Point = new Point(Int32.Parse(x), Int32.Parse(y));
+            Point = new Point(Converter.ToDouble(x), Converter.ToDouble(y));
 
             reader.ReadStartElement();
             while (reader.Name != "Radius")

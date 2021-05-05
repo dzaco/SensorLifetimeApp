@@ -48,7 +48,7 @@ namespace SensorLifetimeApp.Models
             var y = reader.GetAttribute("y");
 
 
-            Point = new Point(Int32.Parse(x), Int32.Parse(y));
+            Point = new Point(Converter.ToDouble(x), Converter.ToDouble(y));
 
         }
         public static POI ReadFromFile(string path)
