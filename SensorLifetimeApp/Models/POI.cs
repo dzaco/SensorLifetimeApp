@@ -16,13 +16,18 @@ namespace SensorLifetimeApp.Models
     public class POI : AreaComponent
     {
         #region Property
-        public List<Sensor> CoverSensors { get; }
+        public bool IsCovered { get; }
+        public List<Sensor> CoverSensors
+        {
+            get
+            {
+                return Settings.Area.SensorCollection.List.FindAll( sensor => sensor.Battery.IsActive && sensor.IsInRange(this));
+            }
+        }
         #endregion
         #region Constructor
         public POI(int id, Point point, Area area) : base(id, point, area)
-        {
-            CoverSensors = new List<Sensor>();
-        }
+        { }
 
         public POI(int id, int x, int y, Area area) : this(id, new Point(x,y), area)
         { }

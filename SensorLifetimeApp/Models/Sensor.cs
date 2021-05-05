@@ -13,7 +13,24 @@ namespace SensorLifetimeApp.Models
         #region Property
         public int Radius { get; set; }
         public Battery Battery { get; private set; }
-        public List<POI> CoveredPOIs { get; }
+        public List<POI> PoisInRange 
+        {
+            get
+            {
+                return Settings.Area.PoiCollection.List.FindAll(poi => this.IsInRange(poi));
+            }
+        }
+        public decimal Coverage
+        {
+            get
+            {
+                if (PoisInRange == null || PoisInRange.Count == 0)
+                    return 0;
+
+                int count = PoisInRange.FindAll(poi => poi.IsCovered).Count;
+                return count / PoisInRange.Count;
+            }
+        }
         #endregion
 
         #region Constructor
@@ -22,13 +39,11 @@ namespace SensorLifetimeApp.Models
         {
             Radius = Settings.ParamSettings.Radius;
             Battery = new Battery(Enums.Power.Off, Settings.ParamSettings.BatteryCapacity);
-            CoveredPOIs = new List<POI>();
         }
         public Sensor(int id, Point point, Area area, int radius, Battery battery) : base(id,point,area)
         {
             Radius = radius;
             Battery = battery;
-            CoveredPOIs = new List<POI>();
         }
 
         public Sensor(int id, int x, int y, Area area) : this(id, new Point(x,y), area)
