@@ -89,6 +89,20 @@ namespace SensorLifetimeApp.Models
         }
         #endregion
 
+        public bool IsCovered
+        {
+            get 
+            {
+                foreach (Sensor sensor in this.Settings.Area.SensorCollection)
+                {
+                    if (sensor.Battery.IsActive && sensor.IsInRange(this))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
         public override string ToString()
         {
             return $"POI {ID}\nX={Point.X}, Y={Point.Y}";

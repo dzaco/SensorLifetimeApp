@@ -31,6 +31,24 @@ namespace SensorLifetimeApp.Models
         [XmlIgnore]
         public Area Parent { get; set; }
 
+        public decimal Coverage
+        {
+            get
+            {
+                if (this.List.Count == 0)
+                    return 0;
+                else
+                {
+                    int count = 0;
+                    foreach (POI poi in this.Settings.Area.PoiCollection)
+                    {
+                        if (poi.IsCovered) count++;
+                    }
+                    return Math.Round(((decimal)count / (decimal)Settings.ParamSettings.PoiCount) * 100, 2);
+                }
+            }
+        }
+
         public SensorCollection()
         {
             this.List = new List<Sensor>();
@@ -161,5 +179,6 @@ namespace SensorLifetimeApp.Models
                 this.List.Add(new Sensor(sensorNode));
             }
         }
+
     }
 }
