@@ -160,6 +160,69 @@ namespace SensorLifetimeApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Max Exploring Battery Time.
+        /// </summary>
+        public static string MaxBatteryTime {
+            get {
+                return ResourceManager.GetString("MaxBatteryTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max Number of &apos;Search Single Solution&apos; Runs.
+        /// </summary>
+        public static string MaxNumberSingleSolutionSerachRuns {
+            get {
+                return ResourceManager.GetString("MaxNumberSingleSolutionSerachRuns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multiruns.
+        /// </summary>
+        public static string Multiruns {
+            get {
+                return ResourceManager.GetString("Multiruns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mutation.
+        /// </summary>
+        public static string Mutation {
+            get {
+                return ResourceManager.GetString("Mutation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mutation Probability.
+        /// </summary>
+        public static string MutationProbability {
+            get {
+                return ResourceManager.GetString("MutationProbability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number Of Generation.
+        /// </summary>
+        public static string NumberOfGeneration {
+            get {
+                return ResourceManager.GetString("NumberOfGeneration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Population Size.
+        /// </summary>
+        public static string PopulationSize {
+            get {
+                return ResourceManager.GetString("PopulationSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rand Sensors.
         /// </summary>
         public static string RandSensors {
@@ -174,6 +237,15 @@ namespace SensorLifetimeApp.Properties {
         public static string Rebuild {
             get {
                 return ResourceManager.GetString("Rebuild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
             }
         }
         
@@ -205,6 +277,42 @@ namespace SensorLifetimeApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Searching &amp; Exploring.
+        /// </summary>
+        public static string SearchingAndExploring {
+            get {
+                return ResourceManager.GetString("SearchingAndExploring", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Searching Single Solution.
+        /// </summary>
+        public static string SearchingSingleSolution {
+            get {
+                return ResourceManager.GetString("SearchingSingleSolution", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Mode.
+        /// </summary>
+        public static string SearchMode {
+            get {
+                return ResourceManager.GetString("SearchMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seed.
+        /// </summary>
+        public static string Seed {
+            get {
+                return ResourceManager.GetString("Seed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sensor Count.
         /// </summary>
         public static string SensorCount {
@@ -219,6 +327,15 @@ namespace SensorLifetimeApp.Properties {
         public static string SensorRadius {
             get {
                 return ResourceManager.GetString("SensorRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
             }
         }
         

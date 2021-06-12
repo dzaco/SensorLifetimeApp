@@ -28,10 +28,13 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="GA" Click="GAClick">
+            </MenuItem>
             <MenuItem Header="{x:Static p:Strings.Language}">
                 <MenuItem Header="EN" Click="LangEnClick"/>
                 <MenuItem Header="PL" Click="LangPlClick"/>
             </MenuItem>
+            
         </Menu>
         <Border Margin="7">
             <Grid>

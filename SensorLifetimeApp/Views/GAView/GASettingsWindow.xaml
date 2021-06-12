@@ -1,0 +1,177 @@
+﻿<Window x:Class="SensorLifetimeApp.Views.GAView.GASettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SensorLifetimeApp.Views.GAView"
+        xmlns:p ="clr-namespace:SensorLifetimeApp.Properties"
+        xmlns:src="clr-namespace:SensorLifetimeApp.Views.GAView"
+        xmlns:enums="clr-namespace:SensorLifetimeApp.Enums"
+        mc:Ignorable="d"
+        Title="GASettingsWindow" Height="500" Width="400">
+    <Window.Resources>
+
+        <ObjectDataProvider x:Key="FindCriteria" ObjectType="{x:Type enums:CrossoverType}" />
+        <local:RadioButtonCheckedConverter x:Key="RadioButtonCheckedConverter" />
+
+    </Window.Resources>
+    <StackPanel Orientation="Vertical"
+                Margin="10">
+        
+        <GroupBox Margin="10 0" Padding="10">
+            <GroupBox.Header>
+                <Label Content="GA Param"/>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0"
+                   HorizontalAlignment="Right" VerticalAlignment="Center"
+                   Content="{x:Static p:Strings.PopulationSize}"/>
+                <TextBox Grid.Row="0" Grid.Column="1"
+                     Width="100" Height="20"
+                     Name="PopulationSizeBox"
+                     PreviewTextInput="NumberPreviewTextInput"
+                     Text="{Binding PopulationSize, Mode=TwoWay}"/>
+
+                <Label Grid.Row="1" Grid.Column="0"
+                   HorizontalAlignment="Right" VerticalAlignment="Center"
+                   Content="{x:Static p:Strings.NumberOfGeneration}"/>
+                <TextBox Grid.Row="1" Grid.Column="1"
+                     Width="100" Height="20"
+                     Name="NumberOfGenerationBox"
+                     PreviewTextInput="NumberPreviewTextInput"
+                     Text="{Binding NumberOfGenerations, Mode=TwoWay}"/>
+
+                <GroupBox Grid.Row="2" Grid.ColumnSpan="2">
+                    <GroupBox.Header>
+                        <Label Content="Crossover"/>
+                    </GroupBox.Header>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <RadioButton GroupName="CrossoverType" Margin="3 0"
+                                     IsChecked="{Binding CrossoverType, 
+                                                Converter={StaticResource RadioButtonCheckedConverter},
+                                                ConverterParameter={x:Static enums:CrossoverType.Type1}}"
+                                     Content="Simple"/>
+                        <RadioButton GroupName="CrossoverType" Margin="3 0"
+                                     IsEnabled="False"
+                                     IsChecked="{Binding CrossoverType, 
+                                                Converter={StaticResource RadioButtonCheckedConverter},
+                                                ConverterParameter={x:Static enums:CrossoverType.Type2}}"
+                                     Content="Advance"/>
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Grid.Row="3" Grid.ColumnSpan="2">
+                    <GroupBox.Header>
+                        <Label Content="{x:Static p:Strings.Mutation}"/>
+                    </GroupBox.Header>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <RadioButton GroupName="MutationType" Margin="3 0"
+                                     IsChecked="{Binding MutationType, 
+                                                Converter={StaticResource RadioButtonCheckedConverter},
+                                                ConverterParameter={x:Static enums:MutationType.Type1}}"
+                                     Content="Simple"/>
+                            <RadioButton GroupName="MutationType" Margin="3 0"
+                                     IsEnabled="False"
+                                     IsChecked="{Binding MutationType, 
+                                                Converter={StaticResource RadioButtonCheckedConverter},
+                                                ConverterParameter={x:Static enums:MutationType.Type2}}"
+                                     Content="Advance"/>
+                        </StackPanel>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Label Grid.Row="0" Grid.Column="0"
+                                    HorizontalAlignment="Right" VerticalAlignment="Center"
+                                    Content="{x:Static p:Strings.MutationProbability}"/>
+                            
+                            <TextBox Grid.Row="0" Grid.Column="1"
+                             Width="100" Height="20"
+                             Name="MutationProbabilityBox"
+                             PreviewTextInput="DecimalPreviewTextInput"
+                             Text="{Binding MutationProbability, Mode=TwoWay}"/>
+                        </Grid>
+                    </StackPanel>
+                </GroupBox>
+            </Grid>
+        </GroupBox>
+
+
+        <GroupBox Margin="10 0" Padding="10">
+            <GroupBox.Header>
+                <Label Content="{x:Static p:Strings.SearchMode}"/>
+            </GroupBox.Header>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0"
+                   HorizontalAlignment="Right" VerticalAlignment="Center"
+                   Content="{x:Static p:Strings.Coverage}"/>
+                <TextBox Grid.Row="0" Grid.Column="1"
+                     Width="100" Height="20"
+                     Name="CoverageBox"
+                     PreviewTextInput="DecimalPreviewTextInput"
+                     Text="{Binding Coverage, Mode=TwoWay}"/>
+
+                <Label Grid.Row="1" Grid.Column="0"
+                   HorizontalAlignment="Right" VerticalAlignment="Center"
+                   Content="{x:Static p:Strings.Seed}"/>
+                <TextBox Grid.Row="1" Grid.Column="1"
+                     Width="100" Height="20"
+                     Name="SeedBox"
+                     PreviewTextInput="NumberPreviewTextInput"
+                     Text="{Binding Seed, Mode=TwoWay}"/>
+
+                <StackPanel Grid.Row="2" Grid.ColumnSpan="2"
+                    Orientation="Vertical" HorizontalAlignment="Center"
+                            Margin="0 10">
+                    <RadioButton GroupName="SearchMode" Margin="3 0"
+                                     IsChecked="{Binding SearchMode, 
+                                                Converter={StaticResource RadioButtonCheckedConverter},
+                                                ConverterParameter={x:Static enums:SearchMode.SearchingSingleSolution}}"
+                                     Content="{x:Static p:Strings.SearchingSingleSolution}"/>
+                    <RadioButton GroupName="SearchMode" Margin="3 0"
+                                     IsEnabled="False"
+                                     IsChecked="{Binding SearchMode, 
+                                                Converter={StaticResource RadioButtonCheckedConverter},
+                                                ConverterParameter={x:Static enums:SearchMode.SearchingAndExploring}}"
+                                     Content="{x:Static p:Strings.SearchingAndExploring}"/>
+                </StackPanel>
+                
+            </Grid>
+            
+        </GroupBox>
+
+        <Button Content="Test" Click="Button_Click"/>
+    </StackPanel>
+</Window>

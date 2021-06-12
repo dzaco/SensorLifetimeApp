@@ -45,6 +45,9 @@ namespace SensorLifetimeApp.Settings.Model
         public ParamSettings ParamSettings { get; set; }
         
         [XmlIgnore]
+        public GAParamSettings GAParamSettings { get; set; }
+
+        [XmlIgnore]
         public Area Area { get; internal set; }
         #endregion
 
@@ -82,6 +85,7 @@ namespace SensorLifetimeApp.Settings.Model
             this.Language = Enums.Language.EN;
             this.SensorFilePath = FileManager.GetFullPath(Names.SensorCollectionXml);
             this.ParamSettings = new ParamSettings();
+            this.GAParamSettings = new GAParamSettings();
         } 
         #endregion
 

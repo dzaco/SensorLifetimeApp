@@ -150,11 +150,35 @@
   <data name="LoadState" xml:space="preserve">
     <value>Wczytaj Stan</value>
   </data>
+  <data name="MaxBatteryTime" xml:space="preserve">
+    <value>Maksymalny Czas Eksploracji Baterii</value>
+  </data>
+  <data name="MaxNumberSingleSolutionSerachRuns" xml:space="preserve">
+    <value>Maksymalna Liczba Uruchomień „Wyszukaj Pojedyncze Rozwiązanie”</value>
+  </data>
+  <data name="Multiruns" xml:space="preserve">
+    <value>Multiruns</value>
+  </data>
+  <data name="Mutation" xml:space="preserve">
+    <value>Mutacja</value>
+  </data>
+  <data name="MutationProbability" xml:space="preserve">
+    <value>Prawdopodobieństwo Mutacji</value>
+  </data>
+  <data name="NumberOfGeneration" xml:space="preserve">
+    <value>Liczba Generacji</value>
+  </data>
+  <data name="PopulationSize" xml:space="preserve">
+    <value>Rozmiar Populacji</value>
+  </data>
   <data name="RandSensors" xml:space="preserve">
     <value>Losuj Sensory</value>
   </data>
   <data name="Rebuild" xml:space="preserve">
     <value>Przebuduj</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Zapisz</value>
   </data>
   <data name="SaveImage" xml:space="preserve">
     <value>Zapisz Obraz</value>
@@ -165,11 +189,26 @@
   <data name="SaveUnderPath" xml:space="preserve">
     <value>Zapisano pod ścieżką</value>
   </data>
+  <data name="SearchingAndExploring" xml:space="preserve">
+    <value>Wyszukiwanie i Eksploracja</value>
+  </data>
+  <data name="SearchingSingleSolution" xml:space="preserve">
+    <value>Wyszukaj Pojedyncze Rozwiązanie</value>
+  </data>
+  <data name="SearchMode" xml:space="preserve">
+    <value>Tryb Wyszukania</value>
+  </data>
+  <data name="Seed" xml:space="preserve">
+    <value>Ziarno</value>
+  </data>
   <data name="SensorCount" xml:space="preserve">
     <value>Liczba Sensorów</value>
   </data>
   <data name="SensorRadius" xml:space="preserve">
     <value>Promień Sensora</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Ustawienia</value>
   </data>
   <data name="ShowPOI" xml:space="preserve">
     <value>Wyświetl POI</value>

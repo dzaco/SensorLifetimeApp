@@ -150,11 +150,35 @@
   <data name="LoadState" xml:space="preserve">
     <value>Load State</value>
   </data>
+  <data name="MaxBatteryTime" xml:space="preserve">
+    <value>Max Exploring Battery Time</value>
+  </data>
+  <data name="MaxNumberSingleSolutionSerachRuns" xml:space="preserve">
+    <value>Max Number of 'Search Single Solution' Runs</value>
+  </data>
+  <data name="Multiruns" xml:space="preserve">
+    <value>Multiruns</value>
+  </data>
+  <data name="Mutation" xml:space="preserve">
+    <value>Mutation</value>
+  </data>
+  <data name="MutationProbability" xml:space="preserve">
+    <value>Mutation Probability</value>
+  </data>
+  <data name="NumberOfGeneration" xml:space="preserve">
+    <value>Number Of Generation</value>
+  </data>
+  <data name="PopulationSize" xml:space="preserve">
+    <value>Population Size</value>
+  </data>
   <data name="RandSensors" xml:space="preserve">
     <value>Rand Sensors</value>
   </data>
   <data name="Rebuild" xml:space="preserve">
     <value>Rebuild</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="SaveImage" xml:space="preserve">
     <value>Save Image</value>
@@ -165,11 +189,26 @@
   <data name="SaveUnderPath" xml:space="preserve">
     <value>Save Under the Path</value>
   </data>
+  <data name="SearchingAndExploring" xml:space="preserve">
+    <value>Searching &amp; Exploring</value>
+  </data>
+  <data name="SearchingSingleSolution" xml:space="preserve">
+    <value>Searching Single Solution</value>
+  </data>
+  <data name="SearchMode" xml:space="preserve">
+    <value>Search Mode</value>
+  </data>
+  <data name="Seed" xml:space="preserve">
+    <value>Seed</value>
+  </data>
   <data name="SensorCount" xml:space="preserve">
     <value>Sensor Count</value>
   </data>
   <data name="SensorRadius" xml:space="preserve">
     <value>Sensor Radius</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
   </data>
   <data name="ShowPOI" xml:space="preserve">
     <value>Show POIs</value>

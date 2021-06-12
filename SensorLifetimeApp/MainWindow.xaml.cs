@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Controls;
 using System.IO;
 using System.Drawing;
+using SensorLifetimeApp.Views.GAView;
 
 namespace SensorLifetimeApp
 {
@@ -111,6 +112,12 @@ namespace SensorLifetimeApp
         {
             var xmlPath = FileManager.CreateEmptySensorFile();
             MessageBox.Show(Properties.Strings.CreatedUnderPath + ": " + xmlPath);
+        }
+
+        public void GAClick(object sender, RoutedEventArgs e)
+        {
+            var ga = new GAWindow();
+           
         }
 
         public void LangEnClick(object sender, RoutedEventArgs e)
