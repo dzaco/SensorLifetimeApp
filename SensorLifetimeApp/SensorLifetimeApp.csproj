@@ -90,7 +90,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commons\RadioButtonCheckedConverter.cs" />
     <Compile Include="Commons\Converter.cs" />
     <Compile Include="Commons\Exceptions\ExceptionWithMessage.cs" />
     <Compile Include="Commons\Exceptions\FileException.cs" />

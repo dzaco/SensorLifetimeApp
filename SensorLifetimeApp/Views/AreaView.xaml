@@ -13,8 +13,15 @@
         <Canvas Name="myCanvas" MouseDown="Canvas_MouseDown">
 
         </Canvas>
-        <Button x:Name="SaveImgBtn" Click="SaveImgBtn_Click" 
-            Content="{x:Static p:Strings.SaveImage}" HorizontalAlignment="Left" Margin="0,525,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="SaveImgBtn" Click="SaveImgBtn_Click"  
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="0,525,0,0"
+            Padding="5 0">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Images/png/photo-camera.png" Width="15" Margin="0 0 5 0"/>
+                <TextBlock Text="{x:Static p:Strings.SaveImage}"/>
+            </StackPanel>
+        </Button>
 
     </StackPanel>
 </UserControl>
